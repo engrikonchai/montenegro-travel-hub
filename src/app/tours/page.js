@@ -2,7 +2,10 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import AffiliatePlaceholder from "@/components/AffiliatePlaceholder";
 
-export const metadata = { title: "Tours & Activities in Montenegro — Montenegro Travel Hub" };
+export const metadata = {
+  title: "Tours & Activities in Montenegro",
+  description: "Boat trips, hikes, and guided tours for exploring Montenegro.",
+};
 
 export default function Tours() {
   return (

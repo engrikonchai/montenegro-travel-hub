@@ -3,7 +3,11 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import AffiliatePlaceholder from "@/components/AffiliatePlaceholder";
 
-export const metadata = { title: "Car Rentals in Montenegro — Montenegro Travel Hub" };
+export const metadata = {
+  title: "Car Rentals in Montenegro",
+  description:
+    "Whether you need a car in Montenegro and how to compare rental agencies for coastal and mountain trips.",
+};
 
 export default function CarRentals() {
   return (

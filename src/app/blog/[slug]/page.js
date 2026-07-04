@@ -9,7 +9,18 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
-  return { title: `${post.title} — Montenegro Travel Hub` };
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      url: `/blog/${slug}`,
+    },
+  };
 }
 
 export default async function BlogPost({ params }) {

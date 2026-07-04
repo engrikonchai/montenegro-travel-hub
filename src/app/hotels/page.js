@@ -2,7 +2,10 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import AffiliatePlaceholder from "@/components/AffiliatePlaceholder";
 
-export const metadata = { title: "Hotels in Montenegro — Montenegro Travel Hub" };
+export const metadata = {
+  title: "Hotels in Montenegro",
+  description: "Curated hotels and apartments along Montenegro's coast and inland.",
+};
 
 export default function Hotels() {
   return (

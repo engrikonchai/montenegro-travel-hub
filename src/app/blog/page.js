@@ -3,7 +3,10 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { getAllPostsMeta } from "@/lib/posts";
 
-export const metadata = { title: "Blog — Montenegro Travel Hub" };
+export const metadata = {
+  title: "Blog",
+  description: "Guides and honest advice for planning a trip to Montenegro.",
+};
 
 export default function BlogIndex() {
   const posts = getAllPostsMeta();

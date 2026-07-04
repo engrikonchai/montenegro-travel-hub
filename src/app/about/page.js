@@ -1,7 +1,11 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-export const metadata = { title: "About — Montenegro Travel Hub" };
+export const metadata = {
+  title: "About",
+  description:
+    "Who's behind Montenegro Travel Hub and how recommendations on this site are made.",
+};
 
 export default function About() {
   return (

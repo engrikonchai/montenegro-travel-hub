@@ -59,6 +59,25 @@ palette without touching component code. Fonts are set in `src/app/layout.js`
 (currently Fraunces for headings, Work Sans for body — swap for any Google Font
 by changing the import).
 
+## SEO
+
+- `src/app/robots.js` and `src/app/sitemap.js` generate `/robots.txt` and `/sitemap.xml`
+  automatically (the sitemap includes every post in `content/posts/`) — no manual
+  updates needed as you add pages or posts.
+- `src/lib/site.js` exports `SITE_URL`, used as the base for canonical URLs, the
+  sitemap, and Open Graph metadata. Set the `NEXT_PUBLIC_SITE_URL` environment
+  variable to your real domain once you have one (falls back to a placeholder
+  domain otherwise).
+- Per-page metadata (title, description, Open Graph) is already set on every page
+  and blog post — check `src/app/layout.js` for the site-wide defaults.
+
+## Analytics
+
+`src/components/GoogleAnalytics.js` loads GA4 only if the `NEXT_PUBLIC_GA_ID`
+environment variable is set (e.g. in a `.env.local` file or your Vercel project
+settings) — it's a no-op until then, so it's safe to leave unset during
+development.
+
 ## Deploying
 
 The fastest path:
@@ -66,14 +85,16 @@ The fastest path:
 1. Push this folder to a new GitHub repository.
 2. Go to [vercel.com](https://vercel.com), sign in with GitHub, and import the repo.
 3. Vercel auto-detects Next.js — click Deploy. No config needed.
-4. Once live, connect your custom domain in the Vercel project's Domains tab.
+4. Once live, connect your custom domain in the Vercel project's Domains tab, and
+   set the `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_GA_ID` environment variables in
+   the Vercel project settings.
 
 Every time you push a new commit (e.g. a new blog post), Vercel redeploys automatically.
 
 ## Before going live
 
-- [ ] Register your domain and connect it in Vercel
-- [ ] Add Google Analytics 4 + Search Console
+- [ ] Register your domain, connect it in Vercel, and set `NEXT_PUBLIC_SITE_URL`
+- [ ] Set `NEXT_PUBLIC_GA_ID` for Google Analytics 4 + submit `/sitemap.xml` to Search Console
 - [ ] Replace the placeholder copy in `about/page.js` with your real story
 - [ ] Fill in the three affiliate TODO sections once accounts are approved
 - [ ] Write your next 3–5 posts using the format above
