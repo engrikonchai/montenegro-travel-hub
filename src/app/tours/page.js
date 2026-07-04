@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import AffiliatePlaceholder from "@/components/AffiliatePlaceholder";
 
 export const metadata = { title: "Tours & Activities in Montenegro — Montenegro Travel Hub" };
 
@@ -14,12 +15,10 @@ export default function Tours() {
           region once you have enough content.
         </p>
 
-        <div className="p-8 bg-ink-light rounded-sm border border-dashed border-stone-dim/30">
-          <p className="text-stone-dim text-sm">
-            TODO: add GetYourGuide / Viator affiliate widgets, or link directly to
-            local operators once you&apos;ve negotiated a lead-based deal.
-          </p>
-        </div>
+        <AffiliatePlaceholder>
+          TODO: add GetYourGuide / Viator affiliate widgets, or link directly to
+          local operators once you&apos;ve negotiated a lead-based deal.
+        </AffiliatePlaceholder>
       </section>
       <Footer />
     </div>

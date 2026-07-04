@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import AffiliatePlaceholder from "@/components/AffiliatePlaceholder";
 
 export const metadata = { title: "Hotels in Montenegro — Montenegro Travel Hub" };
 
@@ -15,12 +16,10 @@ export default function Hotels() {
           affiliate account is approved.
         </p>
 
-        <div className="p-8 bg-ink-light rounded-sm border border-dashed border-stone-dim/30">
-          <p className="text-stone-dim text-sm">
-            TODO: embed Booking.com affiliate search widget here, or list your top
-            picks with affiliate links (e.g. <code>https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&amp;city=Kotor</code>).
-          </p>
-        </div>
+        <AffiliatePlaceholder>
+          TODO: embed Booking.com affiliate search widget here, or list your top
+          picks with affiliate links (e.g. <code>https://www.booking.com/searchresults.html?aid=YOUR_AFFILIATE_ID&amp;city=Kotor</code>).
+        </AffiliatePlaceholder>
       </section>
       <Footer />
     </div>
