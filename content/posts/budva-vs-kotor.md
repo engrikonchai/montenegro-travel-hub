@@ -2,6 +2,9 @@
 title: "Budva vs Kotor: Which Should You Base Yourself In?"
 date: "2026-07-03"
 excerpt: "Both are on every itinerary, but they serve different trips. Here's how the two towns actually compare for a first-time visitor."
+image: "photo-1693984161308-1158f9eae1c4"
+imageAlt: "The Dancing Girl of Budva statue with the Old Town in the background"
+imageCredit: "Minas Aslanyan"
 ---
 
 Both towns show up on nearly every Montenegro itinerary, and both make reasonable bases — but they suit different kinds of trips.

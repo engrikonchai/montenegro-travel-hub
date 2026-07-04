@@ -2,6 +2,9 @@
 title: "Best Time to Visit Montenegro: A Month-by-Month Guide"
 date: "2026-07-01"
 excerpt: "When to go depends on whether you want beach weather, hiking weather, or empty streets in Kotor. Here's the honest breakdown."
+image: "photo-1719305184350-ec6250040a74"
+imageAlt: "Aerial view of the Sveti Stefan island resort on Montenegro's Adriatic coast"
+imageCredit: "Gamze Teoman"
 ---
 
 Montenegro has two very different personalities depending on the season: a packed, hot Adriatic coast in summer, and a quiet, dramatic mountain interior nearly year-round.

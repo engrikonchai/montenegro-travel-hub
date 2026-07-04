@@ -2,6 +2,9 @@
 title: "Kotor Old Town: A Complete Guide"
 date: "2026-06-20"
 excerpt: "What to actually do inside Kotor's city walls, how to avoid the cruise ship crush, and the walk up the fortress everyone talks about."
+image: "photo-1614122027743-50a9e6e8002f"
+imageAlt: "Aerial view of Kotor Bay, Montenegro, with mountains rising around the water and the Old Town below"
+imageCredit: "olga brajnovic"
 ---
 
 Kotor's Old Town sits inside Venetian-era walls, tucked at the back of a bay that's often (technically incorrectly) called Europe's southernmost fjord.

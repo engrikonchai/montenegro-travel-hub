@@ -2,6 +2,9 @@
 title: "Durmitor National Park: A Hiking Guide"
 date: "2026-07-04"
 excerpt: "Montenegro's mountain interior, away from the coast crowds — what to hike, when to go, and how to base yourself in Žabljak."
+image: "photo-1715528598792-576ca7b3777b"
+imageAlt: "A rowboat on Black Lake (Crno Jezero) in Durmitor National Park, Montenegro"
+imageCredit: "Uliana Sova"
 ---
 
 Durmitor is the part of Montenegro most coastal visitors never see, and it's worth the detour if you have more than a beach-and-Old-Towns trip in mind.

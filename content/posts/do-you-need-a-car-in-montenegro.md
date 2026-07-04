@@ -2,6 +2,9 @@
 title: "Do You Need a Car in Montenegro?"
 date: "2026-07-02"
 excerpt: "Public transport covers the coast reasonably well, but a car changes what's realistically possible inland. Here's how to decide."
+image: "photo-1659853478191-516cbccb518b"
+imageAlt: "A car on a mountain road through a rocky gorge in Montenegro"
+imageCredit: "Ilse"
 ---
 
 The honest answer: it depends on how much of the interior you want to see, and how much you mind being tied to bus timetables.

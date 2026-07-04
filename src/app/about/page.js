@@ -1,5 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
+import { IMAGES } from "@/lib/images";
 
 export const metadata = {
   title: "About",
@@ -11,6 +13,7 @@ export default function About() {
   return (
     <div>
       <Nav />
+      <PageHero image={IMAGES.budvaStatue} />
       <section className="max-w-3xl mx-auto px-6 py-16">
         <h1 className="font-display text-4xl mb-6">About this site</h1>
 

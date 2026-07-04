@@ -1,24 +1,30 @@
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Coastline from "@/components/Coastline";
+import PhotoCredit from "@/components/PhotoCredit";
 import { getAllPostsMeta } from "@/lib/posts";
+import { IMAGES, unsplashUrl } from "@/lib/images";
 
 const verticals = [
   {
     href: "/hotels",
     label: "Hotels & Apartments",
     copy: "Coastal boutique stays, Old Town apartments, and budget picks compared honestly.",
+    image: IMAGES.budvaOldTown,
   },
   {
     href: "/car-rentals",
     label: "Car Rentals",
     copy: "Whether you actually need a car, and the agencies worth booking with.",
+    image: IMAGES.mountainRoad,
   },
   {
     href: "/tours",
     label: "Tours & Activities",
     copy: "Boat trips round Kotor Bay, Durmitor hikes, and day trips from the coast.",
+    image: IMAGES.durmitorBlackLake,
   },
 ];
 
@@ -49,6 +55,20 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="max-w-6xl mx-auto px-6 pb-16">
+        <div className="relative aspect-[16/9] sm:aspect-[21/9] rounded-sm overflow-hidden">
+          <Image
+            src={unsplashUrl(IMAGES.kotorBay.id, { w: 1600 })}
+            alt={IMAGES.kotorBay.alt}
+            fill
+            priority
+            sizes="(min-width: 1152px) 1152px, 100vw"
+            className="object-cover"
+          />
+        </div>
+        <PhotoCredit name={IMAGES.kotorBay.credit} className="mt-2" />
+      </section>
+
       <Coastline />
 
       {/* Verticals */}
@@ -59,10 +79,21 @@ export default function Home() {
             <Link
               key={v.href}
               href={v.href}
-              className="block p-6 bg-ink-light rounded-sm hover:-translate-y-0.5 transition-transform"
+              className="block bg-ink-light rounded-sm overflow-hidden hover:-translate-y-0.5 transition-transform"
             >
-              <h3 className="font-display text-xl mb-2">{v.label}</h3>
-              <p className="text-stone-dim text-sm">{v.copy}</p>
+              <div className="relative aspect-[3/2]">
+                <Image
+                  src={unsplashUrl(v.image.id, { w: 800 })}
+                  alt={v.image.alt}
+                  fill
+                  sizes="(min-width: 640px) 33vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="font-display text-xl mb-2">{v.label}</h3>
+                <p className="text-stone-dim text-sm">{v.copy}</p>
+              </div>
             </Link>
           ))}
         </div>
@@ -77,6 +108,17 @@ export default function Home() {
         <div className="grid sm:grid-cols-3 gap-6">
           {posts.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`} className="block group">
+              {post.image && (
+                <div className="relative aspect-[3/2] rounded-sm overflow-hidden mb-4">
+                  <Image
+                    src={unsplashUrl(post.image, { w: 600 })}
+                    alt={post.imageAlt || post.title}
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              )}
               <p className="text-xs text-stone-dim mb-2">{post.date}</p>
               <h3 className="font-display text-lg leading-snug group-hover:text-bronze transition-colors">
                 {post.title}

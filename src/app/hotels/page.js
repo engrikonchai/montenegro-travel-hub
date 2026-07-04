@@ -1,6 +1,8 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import AffiliatePlaceholder from "@/components/AffiliatePlaceholder";
+import PageHero from "@/components/PageHero";
+import { IMAGES } from "@/lib/images";
 
 export const metadata = {
   title: "Hotels in Montenegro",
@@ -11,6 +13,7 @@ export default function Hotels() {
   return (
     <div>
       <Nav />
+      <PageHero image={IMAGES.budvaOldTown} />
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h1 className="font-display text-4xl mb-4">Hotels & Apartments</h1>
         <p className="text-stone-dim max-w-2xl mb-10">

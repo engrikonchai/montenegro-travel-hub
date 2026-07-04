@@ -2,6 +2,8 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import AffiliatePlaceholder from "@/components/AffiliatePlaceholder";
+import PageHero from "@/components/PageHero";
+import { IMAGES } from "@/lib/images";
 
 export const metadata = {
   title: "Car Rentals in Montenegro",
@@ -13,6 +15,7 @@ export default function CarRentals() {
   return (
     <div>
       <Nav />
+      <PageHero image={IMAGES.mountainRoad} />
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h1 className="font-display text-4xl mb-4">Car Rentals</h1>
         <p className="text-stone-dim max-w-2xl mb-10">

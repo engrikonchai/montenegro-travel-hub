@@ -1,7 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { getAllPostsMeta } from "@/lib/posts";
+import { unsplashUrl } from "@/lib/images";
 
 export const metadata = {
   title: "Blog",
@@ -20,10 +22,27 @@ export default function BlogIndex() {
 
         <div className="flex flex-col gap-8">
           {posts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="block border-b border-ink-light pb-8 group">
-              <p className="text-xs text-stone-dim mb-2">{post.date}</p>
-              <h2 className="font-display text-2xl group-hover:text-bronze transition-colors">{post.title}</h2>
-              <p className="text-stone-dim mt-2 max-w-2xl">{post.excerpt}</p>
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="flex flex-col sm:flex-row gap-6 border-b border-ink-light pb-8 group"
+            >
+              {post.image && (
+                <div className="relative w-full sm:w-56 aspect-[16/9] shrink-0 rounded-sm overflow-hidden">
+                  <Image
+                    src={unsplashUrl(post.image, { w: 500 })}
+                    alt={post.imageAlt || post.title}
+                    fill
+                    sizes="(min-width: 640px) 224px, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              )}
+              <div>
+                <p className="text-xs text-stone-dim mb-2">{post.date}</p>
+                <h2 className="font-display text-2xl group-hover:text-bronze transition-colors">{post.title}</h2>
+                <p className="text-stone-dim mt-2 max-w-2xl">{post.excerpt}</p>
+              </div>
             </Link>
           ))}
           {posts.length === 0 && (
