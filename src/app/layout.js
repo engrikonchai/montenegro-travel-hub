@@ -42,6 +42,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${fraunces.variable} ${workSans.variable} antialiased`}>
+        <div className="h-1 w-full bg-gradient-to-r from-bronze via-clay to-sage" />
         {children}
         <GoogleAnalytics />
       </body>

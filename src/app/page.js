@@ -37,33 +37,41 @@ export default function Home() {
 
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 pt-16 pb-10">
-        <p className="text-bronze text-sm tracking-[0.2em] uppercase mb-4">Crna Gora · The Adriatic</p>
-        <h1 className="font-display text-4xl md:text-6xl leading-[1.05] max-w-3xl">
+        <p className="animate-fade-up inline-block px-3 py-1 rounded-full bg-clay/10 text-clay text-sm tracking-[0.2em] uppercase mb-5">
+          Crna Gora · The Adriatic
+        </p>
+        <h1 className="animate-fade-up [animation-delay:100ms] font-display text-4xl md:text-6xl leading-[1.05] max-w-3xl">
           Where the mountains drop straight into the sea.
         </h1>
-        <p className="mt-6 max-w-xl text-stone-dim text-lg">
+        <p className="animate-fade-up [animation-delay:200ms] mt-6 max-w-xl text-stone-dim text-lg">
           Honest, practical guides to visiting Montenegro — plus the hotels, cars,
           and tours worth actually booking.
         </p>
-        <div className="mt-8 flex gap-4 flex-wrap">
-          <Link href="/blog" className="px-6 py-3 bg-bronze text-ink font-medium rounded-sm hover:opacity-90 transition-opacity">
+        <div className="animate-fade-up [animation-delay:300ms] mt-8 flex gap-4 flex-wrap">
+          <Link
+            href="/blog"
+            className="px-6 py-3 bg-bronze text-stone font-medium rounded-full shadow-lg shadow-bronze/25 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-bronze/30 transition-all"
+          >
             Read the guides
           </Link>
-          <Link href="/hotels" className="px-6 py-3 border border-stone-dim/40 rounded-sm hover:border-bronze transition-colors">
+          <Link
+            href="/hotels"
+            className="px-6 py-3 border border-ink/15 rounded-full hover:border-bronze hover:text-bronze hover:-translate-y-0.5 transition-all"
+          >
             Find a hotel
           </Link>
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 pb-16">
-        <div className="relative aspect-[16/9] sm:aspect-[21/9] rounded-sm overflow-hidden">
+      <section className="animate-fade-up [animation-delay:150ms] max-w-6xl mx-auto px-6 pb-16">
+        <div className="group relative aspect-[16/9] sm:aspect-[21/9] rounded-sm overflow-hidden shadow-2xl shadow-ink/10">
           <Image
             src={unsplashUrl(IMAGES.kotorBay.id, { w: 1600 })}
             alt={IMAGES.kotorBay.alt}
             fill
             priority
             sizes="(min-width: 1152px) 1152px, 100vw"
-            className="object-cover"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </div>
         <PhotoCredit name={IMAGES.kotorBay.credit} className="mt-2" />
@@ -79,19 +87,19 @@ export default function Home() {
             <Link
               key={v.href}
               href={v.href}
-              className="block bg-ink-light rounded-sm overflow-hidden hover:-translate-y-0.5 transition-transform"
+              className="group block bg-ink-light rounded-sm overflow-hidden shadow-md shadow-ink/5 hover:shadow-xl hover:shadow-ink/10 hover:-translate-y-1 transition-all"
             >
-              <div className="relative aspect-[3/2]">
+              <div className="relative aspect-[3/2] overflow-hidden">
                 <Image
                   src={unsplashUrl(v.image.id, { w: 800 })}
                   alt={v.image.alt}
                   fill
                   sizes="(min-width: 640px) 33vw, 100vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-display text-xl mb-2">{v.label}</h3>
+                <h3 className="font-display text-xl mb-2 group-hover:text-bronze transition-colors">{v.label}</h3>
                 <p className="text-stone-dim text-sm">{v.copy}</p>
               </div>
             </Link>
@@ -115,7 +123,7 @@ export default function Home() {
                     alt={post.imageAlt || post.title}
                     fill
                     sizes="(min-width: 640px) 33vw, 100vw"
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
               )}
