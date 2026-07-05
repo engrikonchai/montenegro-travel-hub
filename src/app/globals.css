@@ -24,12 +24,20 @@
 
 body {
   background-color: var(--stone);
-  background-image:
-    radial-gradient(ellipse 900px 550px at 12% -10%, color-mix(in srgb, var(--bronze) 12%, transparent), transparent 60%),
-    radial-gradient(ellipse 800px 550px at 105% 15%, color-mix(in srgb, var(--sage) 10%, transparent), transparent 55%);
-  background-attachment: fixed;
   color: var(--ink);
   font-family: var(--font-work-sans), Arial, sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
 ::selection {

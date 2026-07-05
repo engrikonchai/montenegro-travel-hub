@@ -2,8 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
 import { getAllPostsMeta } from "@/lib/posts";
-import { unsplashUrl } from "@/lib/images";
+import { IMAGES, unsplashUrl } from "@/lib/images";
 
 export const metadata = {
   title: "Blog",
@@ -16,19 +17,22 @@ export default function BlogIndex() {
   return (
     <div>
       <Nav />
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <h1 className="font-display text-4xl mb-2">The Blog</h1>
-        <p className="text-stone-dim mb-12">Practical guides for planning a trip to Montenegro.</p>
-
+      <PageHero
+        image={IMAGES.svetiStefan}
+        kicker="The Blog"
+        title="Field notes from Montenegro"
+        subtitle="Practical guides for planning a trip — coastlines, mountains, and everything between."
+      />
+      <section className="max-w-6xl mx-auto px-6 py-20 md:py-28">
         <div className="flex flex-col gap-8">
           {posts.map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="flex flex-col sm:flex-row gap-6 border-b border-ink-light pb-8 group"
+              className="flex flex-col sm:flex-row gap-6 border-b border-ink/10 pb-8 group"
             >
               {post.image && (
-                <div className="relative w-full sm:w-56 aspect-[16/9] shrink-0 rounded-sm overflow-hidden">
+                <div className="relative w-full sm:w-56 aspect-[16/9] shrink-0 overflow-hidden">
                   <Image
                     src={unsplashUrl(post.image, { w: 500 })}
                     alt={post.imageAlt || post.title}

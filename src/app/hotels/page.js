@@ -13,10 +13,13 @@ export default function Hotels() {
   return (
     <div>
       <Nav />
-      <PageHero image={IMAGES.budvaOldTown} />
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <h1 className="font-display text-4xl mb-4">Hotels & Apartments</h1>
-        <p className="text-stone-dim max-w-2xl mb-10">
+      <PageHero
+        image={IMAGES.budvaOldTown}
+        kicker="Hotels & Apartments"
+        title="Where to stay"
+      />
+      <section className="max-w-3xl mx-auto px-6 py-20 md:py-28">
+        <p className="text-stone-dim leading-relaxed">
           Curated stays along the coast and inland — replace this section with your
           Booking.com affiliate widget or a hand-picked comparison list once your
           affiliate account is approved.

@@ -15,10 +15,13 @@ export default function CarRentals() {
   return (
     <div>
       <Nav />
-      <PageHero image={IMAGES.mountainRoad} />
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <h1 className="font-display text-4xl mb-4">Car Rentals</h1>
-        <p className="text-stone-dim max-w-2xl mb-10">
+      <PageHero
+        image={IMAGES.mountainRoad}
+        kicker="Car Rentals"
+        title="On the road"
+      />
+      <section className="max-w-3xl mx-auto px-6 py-20 md:py-28">
+        <p className="text-stone-dim leading-relaxed">
           Whether you need a car depends on your itinerary — read{" "}
           <Link href="/blog/do-you-need-a-car-in-montenegro" className="text-bronze hover:underline">
             Do You Need a Car in Montenegro?

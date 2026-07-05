@@ -13,40 +13,55 @@ export default function About() {
   return (
     <div>
       <Nav />
-      <PageHero image={IMAGES.budvaStatue} />
-      <section className="max-w-3xl mx-auto px-6 py-16">
-        <h1 className="font-display text-4xl mb-6">About this site</h1>
-
-        <h2 className="font-display text-xl mb-3">Who&apos;s writing this</h2>
-        <p className="text-stone-dim leading-relaxed mb-8">
-          Replace this with your own story — where in Montenegro you&apos;ve spent time,
-          how long you&apos;ve been going back, and what first drew you there. A specific
-          detail (a town, a season, a first trip) does more work here than a general
-          claim of expertise.
+      <PageHero
+        image={IMAGES.budvaStatue}
+        kicker="About"
+        title="Why I'm the one writing this"
+      />
+      <section className="max-w-3xl mx-auto px-6 py-20 md:py-28">
+        <h2 className="font-display text-xl mb-3">Five years, no plans to leave</h2>
+        <p className="text-stone-dim leading-relaxed mb-10">
+          I moved to Montenegro five years ago and simply never left. What was meant
+          to be a temporary stop turned into an actual life here — an apartment, a
+          routine, a favourite bakery, the whole thing. This site started because I
+          kept getting the same questions from friends planning their first trip,
+          and I got tired of repeating myself in DMs.
         </p>
 
-        <h2 className="font-display text-xl mb-3">Why this site exists</h2>
-        <p className="text-stone-dim leading-relaxed mb-8">
-          Replace this with the gap you&apos;re filling — outdated guides, generic listicles,
-          advice that doesn&apos;t match what&apos;s actually on the ground. Explain who you&apos;re
-          writing for (first-time visitors? people planning a longer trip?) and what
-          they can expect from your recommendations that they won&apos;t get elsewhere.
+        <h2 className="font-display text-xl mb-3">A family thing, it turns out</h2>
+        <p className="text-stone-dim leading-relaxed mb-10">
+          My parents visited, fell for the place the way I had, and a couple of
+          years later opened{" "}
+          <a
+            href="https://wondermontenegro.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-bronze hover:underline"
+          >
+            Wonder Montenegro
+          </a>
+          , a small tour operator based here. It&apos;s part of why the recommendations
+          on this site lean personal rather than generic — some of these trips, I&apos;ve
+          watched get built from nothing.
         </p>
 
         <h2 className="font-display text-xl mb-3">How recommendations are made</h2>
-        <p className="text-stone-dim leading-relaxed mb-8">
-          Replace this with your actual criteria — personal visits, reader feedback,
-          local contacts. This section does the quiet work of building trust before
-          a reader clicks an affiliate link, so be concrete rather than vague.
+        <p className="text-stone-dim leading-relaxed mb-10">
+          Everything here is filtered through actually having been there — a hotel
+          I&apos;ve stayed in, a hike I&apos;ve done, a road I&apos;ve driven. Where a
+          recommendation comes from someone I know personally, like Wonder
+          Montenegro on the Tours page, I say so directly instead of pretending
+          it&apos;s an anonymous pick.
         </p>
 
         <h2 className="font-display text-xl mb-3">Get in touch</h2>
-        <p className="text-stone-dim leading-relaxed mb-8">
-          Replace this with a contact email or form link for reader questions,
-          corrections, or partnership inquiries.
+        <p className="text-stone-dim leading-relaxed mb-10">
+          Questions, corrections, or just want to compare notes on Montenegro?
+          Reach out anytime — contact details go here once you&apos;ve settled on an
+          inbox you actually check.
         </p>
 
-        <p className="text-stone-dim leading-relaxed text-sm border-t border-ink-light/60 pt-6">
+        <p className="text-stone-dim leading-relaxed text-sm border-t border-ink/10 pt-6">
           Disclosure: some links on this site are affiliate links. If you book
           through them, we may earn a small commission at no extra cost to you.
         </p>

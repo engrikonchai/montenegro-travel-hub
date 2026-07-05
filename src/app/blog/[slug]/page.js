@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import PhotoCredit from "@/components/PhotoCredit";
+import PageHero from "@/components/PageHero";
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
 import { unsplashUrl } from "@/lib/images";
 
@@ -34,24 +33,20 @@ export default async function BlogPost({ params }) {
   return (
     <div>
       <Nav />
-      <article className="max-w-3xl mx-auto px-6 py-16">
-        {post.image && (
-          <div className="mb-8">
-            <div className="relative aspect-[16/9] rounded-sm overflow-hidden">
-              <Image
-                src={unsplashUrl(post.image, { w: 1200 })}
-                alt={post.imageAlt || post.title}
-                fill
-                priority
-                sizes="(min-width: 768px) 768px, 100vw"
-                className="object-cover"
-              />
-            </div>
-            {post.imageCredit && <PhotoCredit name={post.imageCredit} className="mt-2" />}
-          </div>
-        )}
-        <p className="text-xs text-stone-dim mb-3">{post.date}</p>
-        <h1 className="font-display text-4xl mb-8 leading-tight">{post.title}</h1>
+      {post.image ? (
+        <PageHero
+          image={{ id: post.image, alt: post.imageAlt || post.title, credit: post.imageCredit }}
+          kicker={post.date}
+          title={post.title}
+          priority
+        />
+      ) : (
+        <div className="max-w-3xl mx-auto px-6 pt-32 pb-8">
+          <p className="text-xs text-stone-dim mb-3">{post.date}</p>
+          <h1 className="font-display text-4xl leading-tight">{post.title}</h1>
+        </div>
+      )}
+      <article className="max-w-3xl mx-auto px-6 py-20 md:py-28">
         <div
           className="prose-custom text-stone-dim leading-relaxed [&>h2]:font-display [&>h2]:text-2xl [&>h2]:text-ink [&>h2]:mt-10 [&>h2]:mb-3 [&>p]:mb-5"
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
