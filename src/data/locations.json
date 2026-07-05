@@ -1,0 +1,203 @@
+[
+  {
+    "id": "skadarLake",
+    "name": "Skadar Lake National Park",
+    "lat": 42.24612,
+    "lng": 19.091278,
+    "availableActivities": [
+      "ziplineBudva",
+      "boatSkadar",
+      "karting",
+      "shopping",
+      "vrGame",
+      "lazerGame",
+      "paintBall",
+      "pavlova"
+    ],
+    "startingPoint": ["Budva", "Podgorica"],
+    "endingPoint": ["Budva", "Podgorica", "Tivat"],
+    "route": [
+      {
+        "id": "svetiStefanViewpoint",
+        "name": "Sveti Stefan Viewpoint"
+      },
+      {
+        "id": "skadarLakeBoatTour",
+        "name": "Skadar Lake Boat Tour"
+      },
+      {
+        "id": "niagaraWaterfall",
+        "name": "Niagara Waterfall (depends on the season)"
+      },
+      {
+        "id": "choiceStop",
+        "name": "Choose one stop or activity:",
+        "type": "choice",
+        "options": [
+          {
+            "id": "ziplineBudva"
+          },
+          {
+            "id": "karting"
+          },
+          {
+            "id": "shopping"
+          },
+          {
+            "id": "vrGame"
+          },
+          {
+            "id": "lazerGame"
+          },
+          {
+            "id": "paintBall"
+          },
+          {
+            "id": "pavlova",
+            "name": "Pavlova Strana Viewpoint"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "raftingTara",
+    "name": "Rafting Tara Bridge",
+    "lat": 43.148677,
+    "lng": 19.292234,
+    "availableActivities": ["ziplineTara", "raftingTara"],
+    "startingPoint": ["Budva", "Podgorica", "Zabljak"],
+    "endingPoint": ["Budva", "Podgorica", "Tivat"]
+  },
+  {
+    "id": "blackLake",
+    "name": "Black Lake",
+    "lat": 43.148091,
+    "lng": 19.097411,
+    "availableActivities": ["ziplineTara", "raftingTara"],
+    "startingPoint": ["Budva", "Podgorica", "Zabljak"],
+    "endingPoint": ["Budva", "Podgorica", "Tivat"],
+    "route": [
+      {
+        "id": "blackLakeHiking",
+        "name": "Black Lake Hiking Trail"
+      },
+      {
+        "id": "TaraBridgeViewpoint",
+        "name": "Tara Bridge Viewpoint",
+        "options": [
+          {
+            "id": "ziplineTara"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "durmitorActivities",
+    "name": "Durmitor Activities Tour",
+    "lat": 43.15498,
+    "lng": 19.120701,
+    "availableActivities": [
+      "atvZabljak",
+      "raftingTara",
+      "ziplineTara",
+      "jeepZabljak",
+      "horseRidingTrsa",
+      "snowmobileZabljak",
+      "boatPiva"
+    ],
+    "startingPoint": ["Zabljak", "Podgorica"],
+    "endingPoint": ["Budva", "Podgorica", "Tivat"]
+  },
+
+  {
+    "id": "kolasinActivities",
+    "name": "Kolasin Activities Tour",
+    "lat": 42.822541,
+    "lng": 19.523214,
+    "availableActivities": [
+      "atvKolasin",
+      "raftingTara",
+      "jeepKolasin",
+      "horseRidingKolasin",
+      "snowmobileKolasin"
+    ],
+    "startingPoint": ["Zabljak", "Podgorica"],
+    "endingPoint": ["Budva", "Podgorica", "Tivat"]
+  },
+  {
+    "id": "durmitorRing",
+    "name": "Durmitor Ring",
+    "lat": 43.098392,
+    "lng": 19.050778,
+    "availableActivities": ["ziplinePiva", "horseRidingTrsa", "hiking"],
+    "startingPoint": ["Podgorica", "Zabljak"],
+    "endingPoint": ["Podgorica", "Tivat"],
+    "route": [
+      {
+        "id": "p14",
+        "name": "P14 Road"
+      },
+      {
+        "id": "sedlo",
+        "name": "Sedlo Pass"
+      },
+      {
+        "id": "choiceStop",
+        "name": "Choose one stop or activity:",
+        "type": "choice",
+        "options": [
+          {
+            "id": "horseRidingTrsa"
+          },
+          {
+            "id": "ziplinePiva"
+          },
+          {
+            "id": "hiking"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "raftingPiva",
+    "name": "Piva Rafting",
+    "lat": 43.345463,
+    "lng": 18.844381,
+    "availableActivities": ["raftingPiva", "ziplinePiva"],
+    "startingPoint": ["Podgorica", "Zabljak"],
+    "endingPoint": ["Podgorica", "Tivat", "Budva"]
+  },
+  {
+    "id": "biogradLake",
+    "name": "Biograd Lake National Park",
+    "lat": 42.900903,
+    "lng": 19.596933,
+    "availableActivities": ["hiking"],
+    "startingPoint": ["Budva", "Podgorica"],
+    "endingPoint": ["Budva", "Podgorica"],
+    "route": [
+      {
+        "id": "kanyonMoraca",
+        "name": "Kanyon Moraca Panoramic Road"
+      },
+      {
+        "id": "biogradLakeHiking",
+        "name": "Biograd Lake Hiking Trail"
+      },
+      {
+        "id": "choiceStop",
+        "name": "Optional stop:",
+        "type": "choice",
+        "options": [
+          {
+            "id": "verusa",
+            "name": "National Authentic Restaurant (from Podgorica only)"
+          }
+        ]
+      }
+    ]
+  }
+]
