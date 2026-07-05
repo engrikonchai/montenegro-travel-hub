@@ -2,11 +2,11 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import { IMAGES } from "@/lib/images";
+import { SITE_NAME } from "@/lib/site";
 
 export const metadata = {
   title: "About",
-  description:
-    "Who's behind Montenegro Travel Hub and how recommendations on this site are made.",
+  description: `Who's behind ${SITE_NAME} and how recommendations on this site are made.`,
 };
 
 export default function About() {

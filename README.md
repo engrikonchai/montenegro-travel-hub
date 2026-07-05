@@ -1,4 +1,4 @@
-# Montenegro Travel Hub — Starter Site
+# MontenegroBound — Starter Site
 
 A Next.js starter for your Montenegro tourism affiliate/content site. Homepage,
 blog (markdown-powered), and placeholder pages for Hotels / Car Rentals / Tours

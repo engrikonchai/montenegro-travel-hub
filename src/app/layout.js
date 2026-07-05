@@ -22,7 +22,7 @@ const description =
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Montenegro Travel Hub — Plan your trip to Montenegro",
+    default: `${SITE_NAME} — Plan your trip to Montenegro`,
     template: `%s — ${SITE_NAME}`,
   },
   description,

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { SITE_NAME } from "@/lib/site";
 
 const links = [
   { href: "/hotels", label: "Hotels" },
@@ -34,7 +35,7 @@ export default function Nav() {
             scrolled ? "text-ink" : "text-stone"
           }`}
         >
-          Montenegro Travel Hub
+          {SITE_NAME}
         </Link>
         <nav className="hidden sm:flex gap-7 text-sm">
           {links.map((l) => (

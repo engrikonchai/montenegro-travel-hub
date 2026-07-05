@@ -1,4 +1,4 @@
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.montenegrotravelhub.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.montenegrobound.com";
 
-export const SITE_NAME = "Montenegro Travel Hub";
+export const SITE_NAME = "MontenegroBound";
