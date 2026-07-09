@@ -2,7 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import AffiliatePlaceholder from "@/components/AffiliatePlaceholder";
 import PageHero from "@/components/PageHero";
-import TourCard from "@/components/TourCard";
+import TourExplorer from "@/components/TourExplorer";
 import { IMAGES } from "@/lib/images";
 import { getToursGroupedByRegion } from "@/lib/tours";
 
@@ -53,24 +53,7 @@ export default function Tours() {
         </p>
       </section>
 
-      {regions.map(
-        (region) =>
-          region.tours.length > 0 && (
-            <section key={region.id} className="max-w-6xl mx-auto px-6 py-14 md:py-16">
-              <h2 className="font-display text-2xl md:text-3xl mb-8">{region.label}</h2>
-              <div className="grid gap-6 md:grid-cols-2">
-                {region.tours.map((tour) => (
-                  <TourCard
-                    key={tour.id}
-                    tour={tour}
-                    regionLabel={region.label}
-                    regionColor={region.color}
-                  />
-                ))}
-              </div>
-            </section>
-          )
-      )}
+      <TourExplorer regions={regions} />
 
       <section className="max-w-3xl mx-auto px-6 pb-20 md:pb-28">
         <AffiliatePlaceholder>
