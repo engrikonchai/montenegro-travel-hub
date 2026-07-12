@@ -7,3 +7,13 @@ export function buildBookingUrl(city) {
   // params.set("aid", "YOUR_AFFILIATE_ID");
   return `https://www.booking.com/searchresults.html?${params.toString()}`;
 }
+
+// Same as buildBookingUrl(), but pre-fills the search with a specific hotel's
+// name so the card links to that property rather than a generic city search.
+// When the affiliate ID is added above, add it here too (same `aid` param).
+export function buildHotelBookingUrl(hotelName, cityName) {
+  const params = new URLSearchParams({ ss: `${hotelName}, ${cityName}, Montenegro` });
+  // TODO: once approved, uncomment and fill in your Booking.com affiliate ID:
+  // params.set("aid", "YOUR_AFFILIATE_ID");
+  return `https://www.booking.com/searchresults.html?${params.toString()}`;
+}
