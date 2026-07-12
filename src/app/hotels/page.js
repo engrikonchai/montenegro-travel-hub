@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import AffiliatePlaceholder from "@/components/AffiliatePlaceholder";
 import PageHero from "@/components/PageHero";
 import HotelExplorer from "@/components/HotelExplorer";
 import { IMAGES } from "@/lib/images";
@@ -41,16 +40,6 @@ export default function Hotels() {
 
       <HotelExplorer />
 
-      <section className="max-w-3xl mx-auto px-6 pb-20 md:pb-28">
-        <AffiliatePlaceholder>
-          TODO: once a Booking.com affiliate account is approved, add the
-          affiliate ID inside <code>buildHotelBookingUrl()</code> (and{" "}
-          <code>buildBookingUrl()</code>) in <code>src/lib/booking.js</code> —
-          every &ldquo;Check availability&rdquo; link on this page updates
-          automatically. Also plan to verify and refresh hotel names, prices, and
-          ratings in <code>src/data/hotels.js</code> before relying on them.
-        </AffiliatePlaceholder>
-      </section>
       <Footer />
     </div>
   );
