@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import AffiliatePlaceholder from "@/components/AffiliatePlaceholder";
 import PageHero from "@/components/PageHero";
 import TourExplorer from "@/components/TourExplorer";
 import { IMAGES } from "@/lib/images";
@@ -55,12 +54,6 @@ export default function Tours() {
 
       <TourExplorer regions={regions} />
 
-      <section className="max-w-3xl mx-auto px-6 pb-20 md:pb-28">
-        <AffiliatePlaceholder>
-          TODO: add GetYourGuide / Viator widgets here for regions or trip types
-          Wonder Montenegro doesn&apos;t cover.
-        </AffiliatePlaceholder>
-      </section>
       <Footer />
     </div>
   );
