@@ -39,7 +39,7 @@ export default function Home() {
       <Nav />
 
       <PageHero
-        image={IMAGES.kotorBay}
+        image={IMAGES.skadarLakeHero}
         kicker="Crna Gora · The Adriatic"
         title="Where the mountains drop straight into the sea."
         subtitle="Honest, practical guides to visiting Montenegro — plus the hotels, cars, and tours worth actually booking."

@@ -4,6 +4,11 @@ export const IMAGES = {
     alt: "Aerial view of Kotor Bay, Montenegro, with mountains rising around the water and the Old Town below",
     credit: "olga brajnovic",
   },
+  skadarLakeHero: {
+    src: "/images/homepage-hero-skadar-lake.jpg",
+    alt: "Skadar Lake surrounded by pine forest, Montenegro",
+    local: true,
+  },
   budvaOldTown: {
     id: "photo-1599686253246-1d02244f2169",
     alt: "Budva Old Town's stone walls and bell tower seen from a pebble beach, Montenegro",
@@ -18,6 +23,11 @@ export const IMAGES = {
     id: "photo-1715528598792-576ca7b3777b",
     alt: "A rowboat on Black Lake (Crno Jezero) in Durmitor National Park, Montenegro",
     credit: "Uliana Sova",
+  },
+  mountainRoadLocal: {
+    src: "/images/car-rentals-road.jpg",
+    alt: "A paved mountain road curving through dense green forest in Montenegro",
+    local: true,
   },
   mountainRoad: {
     id: "photo-1659853478191-516cbccb518b",

@@ -3,10 +3,12 @@ import PhotoCredit from "@/components/PhotoCredit";
 import { unsplashUrl } from "@/lib/images";
 
 export default function PageHero({ image, kicker, title, subtitle, tall = false, priority = false, children }) {
+  const imageSrc = image.local ? image.src : unsplashUrl(image.id, { w: 1800 });
+
   return (
     <div className={`relative w-full ${tall ? "h-[78vh] min-h-[560px]" : "h-[52vh] min-h-[380px]"}`}>
       <Image
-        src={unsplashUrl(image.id, { w: 1800 })}
+        src={imageSrc}
         alt={image.alt}
         fill
         priority={priority}
@@ -32,7 +34,7 @@ export default function PageHero({ image, kicker, title, subtitle, tall = false,
             </p>
           )}
           {children && <div className="animate-fade-up [animation-delay:300ms] mt-8">{children}</div>}
-          <PhotoCredit name={image.credit} light className="mt-6" />
+          {image.credit && <PhotoCredit name={image.credit} light className="mt-6" />}
         </div>
       </div>
     </div>

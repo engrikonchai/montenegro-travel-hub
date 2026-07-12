@@ -15,7 +15,7 @@ export default function CarRentals() {
     <div>
       <Nav />
       <PageHero
-        image={IMAGES.mountainRoad}
+        image={IMAGES.mountainRoadLocal}
         kicker="Car Rentals"
         title="On the road"
       />
