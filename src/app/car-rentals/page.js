@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import AffiliatePlaceholder from "@/components/AffiliatePlaceholder";
 import PageHero from "@/components/PageHero";
 import { IMAGES } from "@/lib/images";
 
@@ -26,13 +25,35 @@ export default function CarRentals() {
           <Link href="/blog/do-you-need-a-car-in-montenegro" className="text-bronze hover:underline">
             Do You Need a Car in Montenegro?
           </Link>{" "}
-          first, then compare agencies below.
+          first, then check back here for rental options.
         </p>
 
-        <AffiliatePlaceholder>
-          TODO: add your Discover Cars / RentalCars affiliate widget or comparison
-          table here.
-        </AffiliatePlaceholder>
+        {/* PLACEHOLDER copy — replace with real copy once the rental partnership below is confirmed. */}
+        <p className="text-stone-dim leading-relaxed mt-5">
+          We&apos;re working directly with a local Montenegro-based rental company on a
+          proper partnership — real cars, prices, and pickup locations will land here
+          once that&apos;s finalized, rather than a generic comparison widget.
+        </p>
+
+        <div className="grid gap-6 sm:grid-cols-2 mt-12">
+          <div className="bg-ink-light/60 border border-ink/10 rounded-sm p-6 md:p-8 flex flex-col gap-4 items-start sm:col-span-2">
+            <span className="shrink-0 text-xs uppercase tracking-wide px-3 py-1 rounded-full border bg-clay/10 text-clay border-clay/30">
+              Coming soon
+            </span>
+            <p className="text-stone-dim leading-relaxed">
+              Rental listings for coastal pickup (Kotor, Budva, Tivat Airport) and
+              mountain-ready 4x4s for Durmitor and Kolašin trips are on the way.
+              In the meantime, get in touch directly and we&apos;ll help you sort
+              out a car for your dates.
+            </p>
+            <a
+              href="/about#contact"
+              className="mt-auto inline-flex items-center justify-center text-sm font-medium text-stone bg-bronze hover:bg-bronze/90 transition-colors px-5 py-2.5 rounded-sm w-fit"
+            >
+              Contact us for car rental options &rarr;
+            </a>
+          </div>
+        </div>
       </section>
       <Footer />
     </div>

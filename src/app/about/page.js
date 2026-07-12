@@ -54,7 +54,7 @@ export default function About() {
           it&apos;s an anonymous pick.
         </p>
 
-        <h2 className="font-display text-xl mb-3">Get in touch</h2>
+        <h2 id="contact" className="font-display text-xl mb-3 scroll-mt-28">Get in touch</h2>
         <p className="text-stone-dim leading-relaxed mb-10">
           Questions, corrections, or just want to compare notes on Montenegro?
           Reach out anytime — contact details go here once you&apos;ve settled on an
