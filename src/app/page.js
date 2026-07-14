@@ -85,7 +85,7 @@ export default function Home() {
                   <p className="text-xs tracking-[0.25em] uppercase text-bronze mb-4">{v.kicker}</p>
                   <h3 className="font-display text-3xl md:text-4xl mb-4">{v.label}</h3>
                   <p className="text-stone-dim leading-relaxed max-w-md mb-6">{v.copy}</p>
-                  <span className="text-sm tracking-wide border-b border-ink/30 group-hover:border-bronze group-hover:text-bronze transition-colors pb-0.5">
+                  <span className="text-sm tracking-wide border-b border-border group-hover:border-bronze group-hover:text-bronze transition-colors pb-0.5">
                     Explore →
                   </span>
                 </div>
@@ -96,7 +96,7 @@ export default function Home() {
       </section>
 
       {/* Latest posts */}
-      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32 border-t border-ink/10">
+      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32 border-t border-border">
         <div className="flex items-baseline justify-between mb-12">
           <p className="text-xs tracking-[0.25em] uppercase text-stone-dim">Latest from the blog</p>
           <Link href="/blog" className="text-sm text-bronze hover:underline">View all →</Link>
@@ -106,7 +106,7 @@ export default function Home() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="flex flex-col sm:flex-row gap-6 border-b border-ink/10 pb-8 group"
+              className="flex flex-col sm:flex-row gap-6 border-b border-border pb-8 group"
             >
               {post.image && (
                 <div className="relative w-full sm:w-64 aspect-[16/9] shrink-0 overflow-hidden">

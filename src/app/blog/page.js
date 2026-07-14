@@ -29,7 +29,7 @@ export default function BlogIndex() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="flex flex-col sm:flex-row gap-6 border-b border-ink/10 pb-8 group"
+              className="flex flex-col sm:flex-row gap-6 border-b border-border pb-8 group"
             >
               {post.image && (
                 <div className="relative w-full sm:w-56 aspect-[16/9] shrink-0 overflow-hidden">

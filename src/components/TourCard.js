@@ -3,15 +3,17 @@ import PhotoCredit from "@/components/PhotoCredit";
 import { unsplashUrl } from "@/lib/images";
 import { TAG_LABELS } from "@/lib/tours";
 
+// Region badges no longer carry per-region colors — the palette uses a single
+// teal accent — but the keys are kept so existing region `color` data resolves.
 const BADGE_COLORS = {
-  sage: "bg-sage/10 text-sage border-sage/30",
-  clay: "bg-clay/10 text-clay border-clay/30",
+  sage: "bg-bronze/10 text-bronze border-bronze/30",
+  clay: "bg-bronze/10 text-bronze border-bronze/30",
   bronze: "bg-bronze/10 text-bronze border-bronze/30",
 };
 
 export default function TourCard({ tour, regionLabel, regionColor }) {
   return (
-    <div id={tour.id} className="bg-ink-light/60 border border-ink/10 rounded-sm overflow-hidden flex flex-col scroll-mt-28">
+    <div id={tour.id} className="bg-ink-light/60 border border-border rounded-sm overflow-hidden flex flex-col scroll-mt-28">
       <div className="relative w-full aspect-[4/3]">
         <Image
           src={unsplashUrl(tour.image.id, { w: 800 })}
@@ -86,7 +88,7 @@ export default function TourCard({ tour, regionLabel, regionColor }) {
             {tour.activities.map((activity) => (
               <span
                 key={activity.id}
-                className="text-xs px-2.5 py-1 bg-stone border border-ink/10 rounded-full text-stone-dim"
+                className="text-xs px-2.5 py-1 bg-stone border border-border rounded-full text-stone-dim"
               >
                 {activity.label}
               </span>
@@ -96,7 +98,7 @@ export default function TourCard({ tour, regionLabel, regionColor }) {
 
         {/* PLACEHOLDER testimonial — replace with a real Wonder Montenegro client quote. */}
         {tour.testimonial && (
-          <blockquote className="border-l-2 border-clay/40 pl-4 py-0.5">
+          <blockquote className="border-l-2 border-bronze/40 pl-4 py-0.5">
             <p className="text-sm text-stone-dim italic leading-relaxed">&ldquo;{tour.testimonial.quote}&rdquo;</p>
             <p className="text-xs text-stone-dim/70 mt-1.5 not-italic">&mdash; {tour.testimonial.name}</p>
           </blockquote>
@@ -106,7 +108,7 @@ export default function TourCard({ tour, regionLabel, regionColor }) {
           href="https://wondermontenegro.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto inline-flex items-center justify-center text-sm font-medium text-stone bg-bronze hover:bg-bronze/90 transition-colors px-5 py-2.5 rounded-sm w-fit"
+          className="mt-auto inline-flex items-center justify-center text-sm font-medium text-ink bg-bronze hover:bg-bronze/90 transition-colors px-5 py-2.5 rounded-sm w-fit"
         >
           Book via Wonder Montenegro &rarr;
         </a>

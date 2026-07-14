@@ -61,7 +61,7 @@ export default function About() {
           inbox you actually check.
         </p>
 
-        <p className="text-stone-dim leading-relaxed text-sm border-t border-ink/10 pt-6">
+        <p className="text-stone-dim leading-relaxed text-sm border-t border-border pt-6">
           Disclosure: some links on this site are affiliate links. If you book
           through them, we may earn a small commission at no extra cost to you.
         </p>

@@ -45,7 +45,7 @@ export default function MoreToursSection() {
 
       <div className="grid gap-6 md:grid-cols-2">
         {MORE_TOURS.map((theme) => (
-          <div key={theme.id} className="bg-ink-light/60 border border-ink/10 rounded-sm p-6 md:p-8">
+          <div key={theme.id} className="bg-ink-light/60 border border-border rounded-sm p-6 md:p-8">
             <h3 className="font-display text-xl mb-2">{theme.label}</h3>
             <p className="text-sm text-stone-dim mb-4">{theme.description}</p>
             <div

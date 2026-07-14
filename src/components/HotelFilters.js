@@ -17,8 +17,8 @@ function Chip({ active, onClick, children }) {
       aria-pressed={active}
       className={`text-sm px-4 py-2 rounded-full border transition-colors ${
         active
-          ? "bg-bronze text-stone border-bronze"
-          : "border-ink/15 text-stone-dim hover:border-bronze hover:text-bronze"
+          ? "bg-bronze text-ink border-bronze"
+          : "border-border text-stone-dim hover:border-bronze hover:text-bronze"
       }`}
     >
       {children}

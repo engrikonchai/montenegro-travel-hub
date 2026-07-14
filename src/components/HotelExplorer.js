@@ -72,7 +72,7 @@ export default function HotelExplorer() {
           <select
             value={selectedCity}
             onChange={(e) => changeCity(e.target.value)}
-            className="bg-ink-light/60 border border-ink/15 rounded-sm px-4 py-2.5 text-ink font-display text-lg focus:outline-none focus:border-bronze min-w-[16rem]"
+            className="bg-ink-light/60 border border-border rounded-sm px-4 py-2.5 text-ink font-display text-lg focus:outline-none focus:border-bronze min-w-[16rem]"
           >
             {CITIES.map((city) => (
               <option key={city.slug} value={city.slug}>
@@ -87,7 +87,7 @@ export default function HotelExplorer() {
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value)}
-            className="bg-ink-light/60 border border-ink/15 rounded-sm px-4 py-2.5 text-sm text-ink focus:outline-none focus:border-bronze"
+            className="bg-ink-light/60 border border-border rounded-sm px-4 py-2.5 text-sm text-ink focus:outline-none focus:border-bronze"
           >
             {Object.entries(SORTS).map(([key, val]) => (
               <option key={key} value={key}>
@@ -112,14 +112,14 @@ export default function HotelExplorer() {
       </div>
 
       {filteredHotels.length === 0 ? (
-        <div className="border border-ink/10 rounded-sm py-16 px-6 text-center">
+        <div className="border border-border rounded-sm py-16 px-6 text-center">
           <p className="text-stone-dim mb-5">
             No hotels in {cityName} match those filters.
           </p>
           <button
             type="button"
             onClick={clearFilters}
-            className="inline-flex items-center justify-center text-sm font-medium text-stone bg-bronze hover:bg-bronze/90 transition-colors px-5 py-2.5 rounded-sm"
+            className="inline-flex items-center justify-center text-sm font-medium text-ink bg-bronze hover:bg-bronze/90 transition-colors px-5 py-2.5 rounded-sm"
           >
             Clear filters
           </button>

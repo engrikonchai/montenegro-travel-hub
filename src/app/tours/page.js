@@ -26,7 +26,7 @@ export default function Tours() {
           href="https://wondermontenegro.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-medium text-stone bg-bronze hover:bg-bronze/90 transition-colors px-5 py-3 rounded-sm w-fit"
+          className="inline-flex items-center gap-2 text-sm font-medium text-ink bg-bronze hover:bg-bronze/90 transition-colors px-5 py-3 rounded-sm w-fit"
         >
           Book with Wonder Montenegro &rarr;
         </a>

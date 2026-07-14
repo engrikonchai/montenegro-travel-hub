@@ -26,8 +26,8 @@ export default function TourExplorer({ regions }) {
           onClick={() => setActiveTag(null)}
           className={`text-sm px-4 py-2 rounded-full border transition-colors ${
             activeTag === null
-              ? "bg-bronze text-stone border-bronze"
-              : "border-ink/15 text-stone-dim hover:border-bronze hover:text-bronze"
+              ? "bg-bronze text-ink border-bronze"
+              : "border-border text-stone-dim hover:border-bronze hover:text-bronze"
           }`}
         >
           All tours
@@ -39,8 +39,8 @@ export default function TourExplorer({ regions }) {
             onClick={() => setActiveTag(tag === activeTag ? null : tag)}
             className={`text-sm px-4 py-2 rounded-full border transition-colors ${
               activeTag === tag
-                ? "bg-bronze text-stone border-bronze"
-                : "border-ink/15 text-stone-dim hover:border-bronze hover:text-bronze"
+                ? "bg-bronze text-ink border-bronze"
+                : "border-border text-stone-dim hover:border-bronze hover:text-bronze"
             }`}
           >
             {TAG_LABELS[tag]}

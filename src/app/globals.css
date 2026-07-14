@@ -1,13 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #2A1F16;        /* espresso — primary text, and the footer's night band */
-  --ink-light: #EFE3CE;  /* warm card panel, a shade deeper than the page background */
-  --stone: #F6EEDE;      /* sun-bleached limestone — page background */
-  --stone-dim: #6E5D48;  /* muted warm brown — secondary text */
-  --bronze: #D9622B;     /* terracotta — primary accent, CTAs, links */
-  --sage: #0F5C63;       /* Adriatic teal — secondary accent */
-  --clay: #C08829;       /* brass gold — highlights, badges */
+  /* "Budva midnight" palette. Token names are historical (ink/bronze/stone);
+     the values below are the single source of truth. Navy is reserved for the
+     nav / hero / footer bookends and for headings — interior content sits on
+     the light limestone background. */
+  --ink: #1B2438;         /* navy — bookend backgrounds, headings on light, text on teal */
+  --ink-light: #F2EFE4;   /* card surface — same limestone as the page; cards are set off by border + shadow */
+  --stone: #F2EFE4;       /* limestone — page / card background, and text on navy */
+  --stone-dim: #4A4438;   /* body text on light */
+  --muted: #6E7A8C;       /* muted / secondary text */
+  --bronze: #5FA89B;      /* teal — accent: buttons, links, price tags, active states */
+  --border: #DCD6C4;      /* border on light sections */
+  --border-navy: #3A4460; /* border on navy sections */
 }
 
 @theme inline {
@@ -15,9 +20,10 @@
   --color-ink-light: var(--ink-light);
   --color-stone: var(--stone);
   --color-stone-dim: var(--stone-dim);
+  --color-muted: var(--muted);
   --color-bronze: var(--bronze);
-  --color-sage: var(--sage);
-  --color-clay: var(--clay);
+  --color-border: var(--border);
+  --color-border-navy: var(--border-navy);
   --font-display: var(--font-fraunces);
   --font-body: var(--font-work-sans);
 }
@@ -42,7 +48,7 @@ body::before {
 
 ::selection {
   background: var(--bronze);
-  color: var(--stone);
+  color: var(--ink);
 }
 
 .font-display {

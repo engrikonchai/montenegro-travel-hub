@@ -56,7 +56,7 @@ export default function Nav() {
     <>
       <header
         className={`fixed top-0 inset-x-0 z-30 transition-colors duration-300 ${
-          solid ? "bg-stone/95 backdrop-blur-md border-b border-ink/10" : "bg-transparent"
+          solid ? "bg-stone/95 backdrop-blur-md border-b border-border" : "bg-transparent"
         }`}
       >
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
@@ -118,7 +118,7 @@ export default function Nav() {
         {menuOpen && (
           <nav
             id="mobile-nav-panel"
-            className="sm:hidden animate-fade-up border-t border-ink/10 bg-stone"
+            className="sm:hidden animate-fade-up border-t border-border bg-stone"
           >
             <div className="max-w-6xl mx-auto px-6 py-2 flex flex-col">
               {links.map((l) => (
@@ -126,7 +126,7 @@ export default function Nav() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setMenuOpen(false)}
-                  className="py-4 text-base text-ink border-b border-ink/5 last:border-0 hover:text-bronze transition-colors"
+                  className="py-4 text-base text-ink border-b border-border last:border-0 hover:text-bronze transition-colors"
                 >
                   {l.label}
                 </Link>

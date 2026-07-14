@@ -34,6 +34,25 @@ export const IMAGES = {
     alt: "A car on a mountain road through a rocky gorge in Montenegro",
     credit: "Ilse",
   },
+  // Car-rental tier photos are class-representative stock, not specific rental
+  // cars — no Montenegro-specific matches exist on Unsplash, so these are the
+  // closest thematic fits (small hatchback / compact SUV on a green mountain
+  // road / sedan on a coastal road).
+  carRentalBudget: {
+    id: "photo-1549317661-bd32c8ce0db2",
+    alt: "A small teal hatchback parked on a quiet street",
+    credit: "Oli Woodman",
+  },
+  carRentalMidSuv: {
+    id: "photo-1620938729855-a4a0d42ae8fa",
+    alt: "A white compact SUV on a mountain road lined with green trees",
+    credit: "Amir Hanna",
+  },
+  carRentalPremium: {
+    id: "photo-1723375383253-7171af1d398f",
+    alt: "A sedan on a coastal road above the sea",
+    credit: "Luke Miller",
+  },
   svetiStefan: {
     id: "photo-1719305184350-ec6250040a74",
     alt: "Aerial view of the Sveti Stefan island resort on Montenegro's Adriatic coast",
