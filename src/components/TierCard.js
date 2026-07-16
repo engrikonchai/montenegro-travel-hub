@@ -40,7 +40,7 @@ export default function TierCard({ tier, image }) {
       }`}
       style={{ transformStyle: "preserve-3d" }}
     >
-      <div className="relative w-full h-32">
+      <div className="relative w-full aspect-[904/700]">
         <Image
           src={imageSrc}
           alt={image.alt}

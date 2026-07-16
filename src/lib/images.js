@@ -34,24 +34,20 @@ export const IMAGES = {
     alt: "A car on a mountain road through a rocky gorge in Montenegro",
     credit: "Ilse",
   },
-  // Car-rental tier photos are class-representative stock, not specific rental
-  // cars — no Montenegro-specific matches exist on Unsplash, so these are the
-  // closest thematic fits (small hatchback / compact SUV on a green mountain
-  // road / sedan on a coastal road).
   carRentalBudget: {
-    id: "photo-1549317661-bd32c8ce0db2",
-    alt: "A small teal hatchback parked on a quiet street",
-    credit: "Oli Woodman",
+    src: "/images/car-rental-budget-vw-polo.jpg",
+    alt: "A white VW Polo-class hatchback parked on a cobblestone street between colorful buildings",
+    local: true,
   },
   carRentalMidSuv: {
-    id: "photo-1620938729855-a4a0d42ae8fa",
-    alt: "A white compact SUV on a mountain road lined with green trees",
-    credit: "Amir Hanna",
+    src: "/images/car-rental-mid-corolla.jpg",
+    alt: "A white Toyota Corolla-class sedan driving on a coastal mountain road",
+    local: true,
   },
   carRentalPremium: {
-    id: "photo-1723375383253-7171af1d398f",
-    alt: "A sedan on a coastal road above the sea",
-    credit: "Luke Miller",
+    src: "/images/car-rental-premium-c-class.jpg",
+    alt: "A black Mercedes C-Class-style sedan parked beside a seaside terrace",
+    local: true,
   },
   svetiStefan: {
     id: "photo-1719305184350-ec6250040a74",
