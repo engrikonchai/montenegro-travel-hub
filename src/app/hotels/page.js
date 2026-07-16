@@ -25,10 +25,7 @@ export default function Hotels() {
       />
       <section className="max-w-3xl mx-auto px-6 pt-20 md:pt-28">
         <p className="text-stone-dim leading-relaxed">
-          Pick a town below to see a handful of places across every budget, from
-          homestays and guesthouses to beachfront resorts. Filter by price, star
-          rating, or features, then tap through to Booking.com to check live
-          prices and availability for your dates.
+          Pick a region below to search live availability and prices on Booking.com.
         </p>
         {/* PLACEHOLDER DATA — hotel names are real, but prices and ratings are
             unverified starting points. See the notes in src/data/hotels.js. */}

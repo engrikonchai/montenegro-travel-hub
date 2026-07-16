@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import TourExplorer from "@/components/TourExplorer";
+import Disclosure from "@/components/Disclosure";
 import { IMAGES } from "@/lib/images";
 import { getToursGroupedByRegion } from "@/lib/tours";
 
@@ -34,25 +35,34 @@ export default function Tours() {
 
       <section className="max-w-3xl mx-auto px-6 pt-20 md:pt-28">
         <p className="text-stone-dim leading-relaxed">
-          Every tour below is run by{" "}
-          <a
-            href="https://wondermontenegro.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-bronze hover:underline"
-          >
-            Wonder Montenegro
-          </a>
-          , the small operator my parents started a couple of years after they
-          moved here. I&apos;ve watched most of these routes get built stop by
-          stop — the boat launch on Skadar Lake, the put-in for the Tara rafting
-          run, the viewpoints along Durmitor Ring. The starting points, stop
-          order, and activity options listed here come straight from their
-          current trip sheets, so what you see below is what actually runs.
+          Real routes from Wonder Montenegro&apos;s current trip sheets — what you
+          see below is what actually runs.
         </p>
       </section>
 
       <TourExplorer regions={regions} />
+
+      <section className="max-w-3xl mx-auto px-6 pb-20 md:pb-28">
+        <Disclosure trigger="About this operator">
+          <p>
+            Every tour below is run by{" "}
+            <a
+              href="https://wondermontenegro.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-bronze hover:underline"
+            >
+              Wonder Montenegro
+            </a>
+            , the small operator my parents started a couple of years after they
+            moved here. I&apos;ve watched most of these routes get built stop by
+            stop — the boat launch on Skadar Lake, the put-in for the Tara rafting
+            run, the viewpoints along Durmitor Ring. The starting points, stop
+            order, and activity options listed here come straight from their
+            current trip sheets, so what you see below is what actually runs.
+          </p>
+        </Disclosure>
+      </section>
 
       <Footer />
     </div>

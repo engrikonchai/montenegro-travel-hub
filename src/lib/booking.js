@@ -1,6 +1,9 @@
 // Builds a plain (non-affiliate) Booking.com search URL for a given city.
 // Once a Booking.com affiliate account is approved, add the affiliate ID
-// here — this is the one place that needs to change.
+// here — this is the one place that needs to change, and every link on the
+// hotels page updates automatically. At that point, also consider swapping
+// the search links for an embedded Booking.com affiliate widget or
+// hand-picked hotel cards instead.
 export function buildBookingUrl(city) {
   const params = new URLSearchParams({ ss: `${city}, Montenegro` });
   // TODO: once approved, uncomment and fill in your Booking.com affiliate ID:
