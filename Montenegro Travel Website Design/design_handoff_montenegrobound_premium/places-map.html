@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; height:100%; background:transparent; font-family:'Manrope',sans-serif; }
+  #map { width:100%; height:100%; background:#eef3f6; }
+  .mb-pin { width:16px; height:16px; border-radius:50%; border:2.5px solid white; box-shadow:0 2px 8px rgba(20,50,90,.35); }
+  .mb-popup .leaflet-popup-content-wrapper { border-radius:14px; box-shadow:0 20px 40px -12px rgba(20,40,80,.3); padding:0; overflow:hidden; }
+  .mb-popup .leaflet-popup-content { margin:0; width:220px !important; }
+  .mb-popup .leaflet-popup-tip { display:none; }
+  .mb-card-body { padding:14px 16px 16px; }
+  .mb-card-cat { font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; font-weight:700; }
+  .mb-card-region { font-size:11px; color:oklch(52% 0.02 240); margin-top:2px; }
+  .mb-card-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:15.5px; color:oklch(20% 0.03 250); margin:4px 0 6px; }
+  .mb-card-desc { font-size:12px; line-height:1.5; color:oklch(45% 0.02 240); margin:0; }
+  .leaflet-control-attribution { font-size:9px; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+  var CAT_COLOR = {
+    beaches: 'oklch(60% 0.14 220)',
+    mountains: 'oklch(58% 0.14 150)',
+    adventure: 'oklch(62% 0.16 45)',
+    culture: 'oklch(56% 0.14 300)',
+    food: 'oklch(58% 0.16 25)'
+  };
+  var places = [
+    { id:'sveti-stefan', name:'Sveti Stefan', region:'Budva Riviera', category:'beaches', lat:42.2565, lng:18.8907, desc:'The postcard islet of Montenegro' },
+    { id:'mogren', name:'Mogren Beach', region:'Budva', category:'beaches', lat:42.2953, lng:18.8305, desc:'A hidden cove a 5-minute walk from the old town' },
+    { id:'jaz', name:'Jaz Beach', region:'Budva', category:'beaches', lat:42.3057, lng:18.7936, desc:'Wide-open sand & space to breathe' },
+    { id:'velika-plaza', name:'Velika Plaža', region:'Ulcinj', category:'beaches', lat:41.8930, lng:19.3200, desc:'13 km of warm sandy beach in the deep south' },
+    { id:'black-lake', name:'Black Lake', region:'Durmitor NP', category:'mountains', lat:43.1450, lng:19.0810, desc:"Durmitor's glacial mirror, ringed by black pines" },
+    { id:'lovcen', name:'Lovćen & Njegoš Mausoleum', region:'Cetinje', category:'mountains', lat:42.4000, lng:18.8280, desc:'461 steps to the rooftop of old Montenegro' },
+    { id:'biogradska', name:'Biogradska Gora', region:'Kolašin', category:'mountains', lat:42.9020, lng:19.5850, desc:"One of Europe's last primeval forests" },
+    { id:'tara-rafting', name:'Tara River Rafting', region:'Tara Canyon', category:'adventure', lat:43.2600, lng:19.0100, desc:'The deepest canyon in Europe, by raft' },
+    { id:'tara-zip', name:'Đurđevića Tara Bridge & Zipline', region:'Tara Canyon', category:'adventure', lat:43.1580, lng:19.1660, desc:'Fly across the canyon at 80 km/h' },
+    { id:'ladder-kotor', name:'Ladder of Kotor', region:'Kotor', category:'adventure', lat:42.4370, lng:18.7830, desc:'The switchback climb above the bay' },
+    { id:'skadar-kayak', name:'Lake Skadar by Kayak', region:'Virpazar', category:'adventure', lat:42.2580, lng:19.0970, desc:"Paddle the Balkans' largest lake among water lilies" },
+    { id:'kotor-old-town', name:'Kotor Old Town', region:'Kotor', category:'culture', lat:42.4247, lng:18.7712, desc:'A UNESCO maze of stone, squares & cats' },
+    { id:'perast', name:'Perast & Our Lady of the Rocks', region:'Bay of Kotor', category:'culture', lat:42.4874, lng:18.7011, desc:'A baroque village & its man-made island church' },
+    { id:'ostrog', name:'Ostrog Monastery', region:'Danilovgrad', category:'culture', lat:42.7040, lng:18.9260, desc:'A white monastery built into a sheer cliff' },
+    { id:'cetinje', name:'Cetinje', region:'Old Royal Capital', category:'culture', lat:42.3911, lng:18.9237, desc:'The old royal capital frozen in time' },
+    { id:'budva-old-town', name:'Budva Old Town', region:'Budva', category:'culture', lat:42.2864, lng:18.8400, desc:'2,500 years of history on a little peninsula' },
+    { id:'njegusi', name:'Njeguši Village', region:'Lovćen', category:'food', lat:42.3800, lng:18.8100, desc:"The home of Montenegro's famous prosciutto" },
+    { id:'crmnica', name:'Crmnica Wine Country', region:'Lake Skadar', category:'food', lat:42.2700, lng:19.0500, desc:'Vranac & Krstač in the hills above the lake' },
+    { id:'konoba', name:'Kotor Konoba Dinner', region:'Bay of Kotor', category:'food', lat:42.4300, lng:18.7750, desc:'Fresh fish & black risotto by the water' }
+  ];
+
+  var map = L.map('map', { zoomControl:true, scrollWheelZoom:false }).setView([42.7, 19.15], 8);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution:'&copy; OpenStreetMap contributors', maxZoom:17 }).addTo(map);
+
+  var layers = {};
+  places.forEach(function(p){
+    var color = CAT_COLOR[p.category];
+    var icon = L.divIcon({ className:'', html:'<div class="mb-pin" style="background:' + color + '"></div>', iconSize:[16,16], iconAnchor:[8,8] });
+    var html = '<div class="mb-popup-inner"><div class="mb-card-body"><div class="mb-card-cat" style="color:' + color + '">' + p.category + '</div><div class="mb-card-region">' + p.region + '</div><div class="mb-card-title">' + p.name + '</div><p class="mb-card-desc">' + p.desc + '</p></div></div>';
+    var m = L.marker([p.lat, p.lng], { icon:icon }).bindPopup(html, { className:'mb-popup', minWidth:220 });
+    if (!layers[p.category]) layers[p.category] = L.layerGroup();
+    layers[p.category].addLayer(m);
+  });
+  Object.keys(layers).forEach(function(cat){ layers[cat].addTo(map); });
+
+  window.addEventListener('message', function(ev){
+    var d = ev.data || {};
+    if (d.type === 'filter') {
+      Object.keys(layers).forEach(function(cat){
+        if (d.category === 'all' || d.category === cat) { if (!map.hasLayer(layers[cat])) layers[cat].addTo(map); }
+        else { if (map.hasLayer(layers[cat])) map.removeLayer(layers[cat]); }
+      });
+    }
+  });
+</script>
+</body>
+</html>
