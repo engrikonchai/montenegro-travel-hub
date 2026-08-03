@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import TourCard from "@/components/TourCard";
+import Chip from "@/components/Chip";
+import Reveal from "@/components/Reveal";
 import { TAG_LABELS } from "@/lib/tours";
 
 export default function TourExplorer({ regions }) {
@@ -21,30 +23,13 @@ export default function TourExplorer({ regions }) {
   return (
     <>
       <div className="max-w-6xl mx-auto px-6 flex flex-wrap gap-3 mb-4" role="group" aria-label="Filter tours by type">
-        <button
-          type="button"
-          onClick={() => setActiveTag(null)}
-          className={`text-sm px-4 py-2 rounded-full border transition-colors ${
-            activeTag === null
-              ? "bg-bronze text-ink border-bronze"
-              : "border-border text-stone-dim hover:border-bronze hover:text-bronze"
-          }`}
-        >
+        <Chip active={activeTag === null} onClick={() => setActiveTag(null)}>
           All tours
-        </button>
+        </Chip>
         {tags.map((tag) => (
-          <button
-            type="button"
-            key={tag}
-            onClick={() => setActiveTag(tag === activeTag ? null : tag)}
-            className={`text-sm px-4 py-2 rounded-full border transition-colors ${
-              activeTag === tag
-                ? "bg-bronze text-ink border-bronze"
-                : "border-border text-stone-dim hover:border-bronze hover:text-bronze"
-            }`}
-          >
+          <Chip key={tag} active={activeTag === tag} onClick={() => setActiveTag(tag === activeTag ? null : tag)}>
             {TAG_LABELS[tag]}
-          </button>
+          </Chip>
         ))}
       </div>
 
@@ -54,7 +39,9 @@ export default function TourExplorer({ regions }) {
 
       {filteredRegions.map((region) => (
         <section key={region.id} id={region.id} className="max-w-6xl mx-auto px-6 py-14 md:py-16 scroll-mt-28">
-          <h2 className="font-display text-2xl md:text-3xl mb-8">{region.label}</h2>
+          <Reveal>
+            <h2 className="font-display text-2xl md:text-3xl mb-8">{region.label}</h2>
+          </Reveal>
           <div className="grid gap-6 md:grid-cols-2">
             {region.tours.map((tour) => (
               <TourCard key={tour.id} tour={tour} regionLabel={region.label} regionColor={region.color} />

@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import TourExplorer from "@/components/TourExplorer";
 import Disclosure from "@/components/Disclosure";
+import Reveal from "@/components/Reveal";
 import { IMAGES } from "@/lib/images";
 import { getToursGroupedByRegion } from "@/lib/tours";
 
@@ -27,22 +28,27 @@ export default function Tours() {
           href="https://wondermontenegro.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-medium text-ink bg-bronze hover:bg-bronze/90 transition-colors px-5 py-3 rounded-sm w-fit"
+          className="group inline-flex items-center gap-1.5 text-sm font-medium text-ink bg-bronze hover:bg-bronze/90 active:scale-[0.97] transition-[background-color,transform] duration-200 ease-snap px-5 py-3 rounded-sm w-fit"
         >
-          Book with Wonder Montenegro &rarr;
+          Book with Wonder Montenegro
+          <span className="inline-block transition-transform duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-1">
+            →
+          </span>
         </a>
       </PageHero>
 
-      <section className="max-w-3xl mx-auto px-6 pt-20 md:pt-28">
-        <p className="text-stone-dim leading-relaxed">
-          Real routes from Wonder Montenegro&apos;s current trip sheets — what you
-          see below is what actually runs.
-        </p>
+      <section className="max-w-3xl mx-auto px-6 pt-24 md:pt-32">
+        <Reveal>
+          <p className="text-stone-dim leading-relaxed">
+            Real routes from Wonder Montenegro&apos;s current trip sheets — what you
+            see below is what actually runs.
+          </p>
+        </Reveal>
       </section>
 
       <TourExplorer regions={regions} />
 
-      <section className="max-w-3xl mx-auto px-6 pb-20 md:pb-28">
+      <section className="max-w-3xl mx-auto px-6 pb-24 md:pb-32">
         <Disclosure trigger="About this operator">
           <p>
             Every tour below is run by{" "}
@@ -50,7 +56,7 @@ export default function Tours() {
               href="https://wondermontenegro.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-bronze hover:underline"
+              className="text-bronze-text hover:underline"
             >
               Wonder Montenegro
             </a>

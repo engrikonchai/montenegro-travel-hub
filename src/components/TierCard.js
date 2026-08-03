@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import PhotoCredit from "@/components/PhotoCredit";
+import FadeImage from "@/components/FadeImage";
 import { unsplashUrl } from "@/lib/images";
 
 export default function TierCard({ tier, image }) {
@@ -35,18 +35,18 @@ export default function TierCard({ tier, image }) {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`relative bg-ink-light/60 rounded-2xl overflow-hidden flex flex-col shadow-md transition-transform duration-200 ease-out will-change-transform ${
+      className={`group relative bg-ink-light rounded-2xl overflow-hidden flex flex-col shadow-md hover:shadow-xl transition-[transform,box-shadow] duration-200 ease-snap will-change-transform ${
         popular ? "border-2 border-bronze" : "border border-border"
       }`}
       style={{ transformStyle: "preserve-3d" }}
     >
-      <div className="relative w-full aspect-[904/700]">
-        <Image
+      <div className="relative w-full aspect-[904/700] overflow-hidden">
+        <FadeImage
           src={imageSrc}
           alt={image.alt}
           fill
           sizes="(min-width: 1024px) 33vw, 100vw"
-          className="object-cover"
+          className="object-cover transition-[transform,opacity] duration-700 ease-graceful group-hover:scale-105"
         />
         {popular && (
           <span className="absolute top-3 left-3 z-10 text-[11px] font-medium uppercase tracking-wide text-ink bg-bronze px-2.5 py-1 rounded-full shadow-sm">
@@ -60,7 +60,7 @@ export default function TierCard({ tier, image }) {
 
         <h3 className="font-display text-xl md:text-2xl leading-tight">{tier.title}</h3>
 
-        <p className="font-medium text-bronze">{tier.priceRange}</p>
+        <p className="font-medium text-bronze-text">{tier.priceRange}</p>
 
         <p className="text-sm text-stone-dim leading-relaxed">{tier.blurb}</p>
 
@@ -78,7 +78,7 @@ export default function TierCard({ tier, image }) {
             {tier.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs px-2.5 py-1 bg-bronze/10 border border-bronze/20 rounded-full text-bronze"
+                className="text-xs px-2.5 py-1 bg-bronze/10 border border-bronze/20 rounded-full text-bronze-text"
               >
                 {tag}
               </span>
@@ -102,7 +102,7 @@ export default function TierCard({ tier, image }) {
           className={`mt-auto inline-flex items-center justify-center text-sm font-medium px-5 py-2.5 rounded-sm w-full cursor-default select-none ${
             popular
               ? "text-ink bg-bronze"
-              : "text-bronze bg-bronze/10 border border-bronze/20"
+              : "text-bronze-text bg-bronze/10 border border-bronze/20"
           }`}
         >
           Compare {tier.title}

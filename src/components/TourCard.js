@@ -1,26 +1,37 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "motion/react";
 import PhotoCredit from "@/components/PhotoCredit";
+import FadeImage from "@/components/FadeImage";
 import { unsplashUrl } from "@/lib/images";
 import { TAG_LABELS } from "@/lib/tours";
 
 // Region badges no longer carry per-region colors — the palette uses a single
 // teal accent — but the keys are kept so existing region `color` data resolves.
 const BADGE_COLORS = {
-  sage: "bg-bronze/10 text-bronze border-bronze/30",
-  clay: "bg-bronze/10 text-bronze border-bronze/30",
-  bronze: "bg-bronze/10 text-bronze border-bronze/30",
+  sage: "bg-bronze/10 text-bronze-text border-bronze/30",
+  clay: "bg-bronze/10 text-bronze-text border-bronze/30",
+  bronze: "bg-bronze/10 text-bronze-text border-bronze/30",
 };
 
 export default function TourCard({ tour, regionLabel, regionColor }) {
   return (
-    <div id={tour.id} className="bg-ink-light/60 border border-border rounded-sm overflow-hidden flex flex-col scroll-mt-28">
-      <div className="relative w-full aspect-[4/3]">
-        <Image
+    <motion.div
+      id={tour.id}
+      layout
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      className="card-elevate group bg-ink-light border border-border rounded-sm overflow-hidden flex flex-col scroll-mt-28"
+    >
+      <div className="relative w-full aspect-[4/3] overflow-hidden">
+        <FadeImage
           src={unsplashUrl(tour.image.id, { w: 800 })}
           alt={tour.image.alt}
           fill
           sizes="(min-width: 768px) 50vw, 100vw"
-          className="object-cover"
+          className="object-cover transition-[transform,opacity] duration-700 ease-graceful group-hover:scale-105"
         />
       </div>
 
@@ -39,7 +50,7 @@ export default function TourCard({ tour, regionLabel, regionColor }) {
         </div>
 
         <div className="flex items-center gap-3 text-sm">
-          <span className="font-medium text-bronze">{tour.priceFrom}</span>
+          <span className="font-medium text-bronze-text">{tour.priceFrom}</span>
           <span className="text-ink/20">&bull;</span>
           <span className="text-stone-dim">{tour.duration}</span>
         </div>
@@ -49,7 +60,7 @@ export default function TourCard({ tour, regionLabel, regionColor }) {
             {tour.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs px-2.5 py-1 bg-bronze/10 border border-bronze/20 rounded-full text-bronze"
+                className="text-xs px-2.5 py-1 bg-bronze/10 border border-bronze/20 rounded-full text-bronze-text"
               >
                 {TAG_LABELS[tag] || tag}
               </span>
@@ -71,7 +82,7 @@ export default function TourCard({ tour, regionLabel, regionColor }) {
             <ol className="space-y-1.5 text-sm text-ink">
               {tour.route.map((stop, i) => (
                 <li key={i} className="flex gap-2">
-                  <span className="text-bronze font-medium shrink-0">{i + 1}.</span>
+                  <span className="text-bronze-text font-medium shrink-0">{i + 1}.</span>
                   {stop.type === "choice" ? (
                     <span>Choose one: {stop.options.join(", ")}</span>
                   ) : (
@@ -108,11 +119,14 @@ export default function TourCard({ tour, regionLabel, regionColor }) {
           href="https://wondermontenegro.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto inline-flex items-center justify-center text-sm font-medium text-ink bg-bronze hover:bg-bronze/90 transition-colors px-5 py-2.5 rounded-sm w-fit"
+          className="group/cta mt-auto inline-flex items-center justify-center text-sm font-medium text-ink bg-bronze hover:bg-bronze/90 active:scale-[0.97] transition-[background-color,transform] duration-200 ease-snap px-5 py-2.5 rounded-sm w-fit"
         >
-          Book via Wonder Montenegro &rarr;
+          Book via Wonder Montenegro
+          <span className="inline-block ml-1.5 transition-transform duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover/cta:translate-x-1">
+            →
+          </span>
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 }

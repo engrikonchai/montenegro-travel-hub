@@ -1,8 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
+import FadeImage from "@/components/FadeImage";
 import { getAllPostsMeta } from "@/lib/posts";
 import { IMAGES, unsplashUrl } from "@/lib/images";
 
@@ -23,31 +24,34 @@ export default function BlogIndex() {
         title="Field notes from Montenegro"
         subtitle="Practical guides for planning a trip — coastlines, mountains, and everything between."
       />
-      <section className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
         <div className="flex flex-col gap-8">
-          {posts.map((post) => (
-            <Link
-              key={post.slug}
-              href={`/blog/${post.slug}`}
-              className="flex flex-col sm:flex-row gap-6 border-b border-border pb-8 group"
-            >
-              {post.image && (
-                <div className="relative w-full sm:w-56 aspect-[16/9] shrink-0 overflow-hidden">
-                  <Image
-                    src={unsplashUrl(post.image, { w: 500 })}
-                    alt={post.imageAlt || post.title}
-                    fill
-                    sizes="(min-width: 640px) 224px, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+          {posts.map((post, i) => (
+            <Reveal key={post.slug} delay={Math.min(i, 4) * 0.08}>
+              <Link
+                href={`/blog/${post.slug}`}
+                className="flex flex-col sm:flex-row gap-6 border-b border-border pb-8 group"
+              >
+                {post.image && (
+                  <div className="relative w-full sm:w-56 aspect-[16/9] shrink-0 overflow-hidden">
+                    <FadeImage
+                      src={unsplashUrl(post.image, { w: 500 })}
+                      alt={post.imageAlt || post.title}
+                      fill
+                      sizes="(min-width: 640px) 224px, 100vw"
+                      className="object-cover transition-[transform,opacity] duration-700 ease-graceful group-hover:scale-105"
+                    />
+                  </div>
+                )}
+                <div>
+                  <p className="text-xs text-stone-dim mb-2">{post.date}</p>
+                  <h2 className="font-display text-2xl group-hover:text-bronze-text transition-colors duration-200 ease-snap">
+                    {post.title}
+                  </h2>
+                  <p className="text-stone-dim mt-2 max-w-2xl">{post.excerpt}</p>
                 </div>
-              )}
-              <div>
-                <p className="text-xs text-stone-dim mb-2">{post.date}</p>
-                <h2 className="font-display text-2xl group-hover:text-bronze transition-colors">{post.title}</h2>
-                <p className="text-stone-dim mt-2 max-w-2xl">{post.excerpt}</p>
-              </div>
-            </Link>
+              </Link>
+            </Reveal>
           ))}
           {posts.length === 0 && (
             <p className="text-stone-dim">No posts yet — add markdown files to content/posts/.</p>

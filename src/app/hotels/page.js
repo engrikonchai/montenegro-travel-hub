@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import HotelExplorer from "@/components/HotelExplorer";
+import Reveal from "@/components/Reveal";
 import { IMAGES } from "@/lib/images";
 
 export const metadata = {
@@ -23,16 +24,18 @@ export default function Hotels() {
         title="Where to stay"
         subtitle="Coastal towns for beach time and Old Towns, mountain towns for hiking and quiet — pick a base, then filter by price, rating, and what matters to you."
       />
-      <section className="max-w-3xl mx-auto px-6 pt-20 md:pt-28">
-        <p className="text-stone-dim leading-relaxed">
-          Pick a region below to search live availability and prices on Booking.com.
-        </p>
-        {/* PLACEHOLDER DATA — hotel names are real, but prices and ratings are
-            unverified starting points. See the notes in src/data/hotels.js. */}
-        <p className="text-sm text-stone-dim/70 leading-relaxed mt-4">
-          Prices and ratings shown are rough starting points to compare tiers at a
-          glance — always confirm the current rate on Booking.com before booking.
-        </p>
+      <section className="max-w-3xl mx-auto px-6 pt-24 md:pt-32">
+        <Reveal>
+          <p className="text-stone-dim leading-relaxed">
+            Pick a region below to search live availability and prices on Booking.com.
+          </p>
+          {/* PLACEHOLDER DATA — hotel names are real, but prices and ratings are
+              unverified starting points. See the notes in src/data/hotels.js. */}
+          <p className="text-sm text-stone-dim/70 leading-relaxed mt-4">
+            Prices and ratings shown are rough starting points to compare tiers at a
+            glance — always confirm the current rate on Booking.com before booking.
+          </p>
+        </Reveal>
       </section>
 
       <HotelExplorer />

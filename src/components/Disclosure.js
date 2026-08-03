@@ -14,13 +14,13 @@ export default function Disclosure({ trigger, children }) {
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         aria-expanded={open}
-        className="flex items-center gap-2 text-sm font-medium text-ink"
+        className="group flex items-center gap-2 text-sm font-medium text-ink hover:text-bronze-text transition-colors duration-200 ease-snap"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className={`w-4 h-4 shrink-0 text-bronze transition-transform duration-200 ${
+          className={`w-4 h-4 shrink-0 text-bronze-text transition-transform duration-200 ease-snap ${
             open ? "rotate-90" : ""
           }`}
         >
@@ -33,7 +33,7 @@ export default function Disclosure({ trigger, children }) {
         {trigger}
       </button>
       <div
-        className="grid transition-[grid-template-rows] duration-300 ease-in-out"
+        className="grid transition-[grid-template-rows] duration-300 ease-graceful"
         style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
       >
         <div className="overflow-hidden">

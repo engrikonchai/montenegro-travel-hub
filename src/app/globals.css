@@ -10,7 +10,12 @@
   --stone: #F2EFE4;       /* limestone — page / card background, and text on navy */
   --stone-dim: #4A4438;   /* body text on light */
   --muted: #6E7A8C;       /* muted / secondary text */
-  --bronze: #5FA89B;      /* teal — accent: buttons, links, price tags, active states */
+  --bronze: #5FA89B;      /* teal — accent: button/badge fills, borders, icons */
+  --bronze-text: #2C7566; /* same teal, deepened — used wherever bronze is text-on-limestone.
+                              --bronze itself is ~2.4:1 against --stone (fails WCAG AA); this
+                              is the same hue at ~4.7:1, so links/prices/labels stay legible
+                              without introducing a second accent color. Backgrounds, badge
+                              fills, and borders keep using --bronze unchanged. */
   --border: #DCD6C4;      /* border on light sections */
   --border-navy: #3A4460; /* border on navy sections */
 }
@@ -22,10 +27,18 @@
   --color-stone-dim: var(--stone-dim);
   --color-muted: var(--muted);
   --color-bronze: var(--bronze);
+  --color-bronze-text: var(--bronze-text);
   --color-border: var(--border);
   --color-border-navy: var(--border-navy);
   --font-display: var(--font-fraunces);
   --font-body: var(--font-work-sans);
+
+  /* Two motion "voices", used consistently instead of ad-hoc easing per
+     component. Graceful: content reveals, image zooms, anything slow and
+     ambient. Snap: buttons, chips, nav — quick, mechanical UI feedback.
+     Both usable as ease-graceful / ease-snap utilities. */
+  --ease-graceful: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-snap: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 body {
@@ -55,6 +68,69 @@ body::before {
   font-family: var(--font-fraunces), Georgia, serif;
 }
 
+@keyframes hero-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.animate-hero-kenburns {
+  /* Linear, not eased: this drifts for 20s, so an ease-out front-loads nearly
+     all the scale into the first few seconds and then visibly stalls. A
+     constant rate is what actually reads as an imperceptible ambient drift. */
+  animation: hero-kenburns 20s linear both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-kenburns {
+    animation: none;
+  }
+}
+
+/* Adriatic light shimmer — two soft gradient blooms drifting slowly over the
+   homepage hero only (see PageHero's `shimmer` prop). Different periods
+   (42s/55s) so the two never fall back into sync, which is what keeps it
+   reading as ambient light rather than an obvious repeating loop. */
+@keyframes shimmer-drift-a {
+  0%,
+  100% {
+    transform: translate(-8%, -12%) scale(1);
+  }
+  50% {
+    transform: translate(14%, 8%) scale(1.15);
+  }
+}
+
+@keyframes shimmer-drift-b {
+  0%,
+  100% {
+    transform: translate(16%, 12%) scale(1.1);
+  }
+  50% {
+    transform: translate(-12%, -8%) scale(0.95);
+  }
+}
+
+.hero-shimmer-a {
+  background: radial-gradient(circle, rgba(255, 214, 130, 0.3) 0%, transparent 65%);
+  animation: shimmer-drift-a 42s ease-in-out infinite;
+}
+
+.hero-shimmer-b {
+  background: radial-gradient(circle, rgba(95, 168, 155, 0.28) 0%, transparent 65%);
+  animation: shimmer-drift-b 55s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-shimmer-a,
+  .hero-shimmer-b {
+    animation: none;
+  }
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -68,4 +144,41 @@ body::before {
 
 .animate-fade-up {
   animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation-duration: 0.001s;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Shared elevation for card-style components (HotelCard, TourCard, TierCard,
+   MoreToursSection). Rest state matches the existing flat card look; hover
+   lifts the card with a soft navy-tinted shadow instead of a generic black
+   one, keeping it inside the site's palette.
+
+   This only handles box-shadow/border — NOT transform. Cards in this design
+   system are Motion `motion.div`s (for mount fades and, on the hotel grid,
+   layout reflow), and Motion manages `transform` as an inline style. An
+   inline style always wins over a CSS class, so a `:hover { transform }`
+   rule here would be silently dead on any Motion-driven card. The lift
+   itself is applied via each card's own `whileHover` instead. */
+.card-elevate {
+  transition:
+    box-shadow 0.3s var(--ease-graceful),
+    border-color 0.3s var(--ease-graceful);
+  box-shadow: 0 1px 2px rgba(27, 36, 56, 0.05);
+}
+
+.card-elevate:hover {
+  border-color: var(--bronze);
+  box-shadow:
+    0 28px 48px -24px rgba(27, 36, 56, 0.35),
+    0 6px 16px -8px rgba(27, 36, 56, 0.15);
 }

@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import TierCard from "@/components/TierCard";
 import Disclosure from "@/components/Disclosure";
+import Reveal from "@/components/Reveal";
 import { IMAGES } from "@/lib/images";
 import { carRentalTiers } from "@/data/carRentalTiers";
 
@@ -22,10 +23,12 @@ export default function CarRentals() {
         kicker="Car Rentals"
         title="On the road"
       />
-      <section className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {carRentalTiers.map((tier) => (
-            <TierCard key={tier.id} tier={tier} image={IMAGES[tier.imageKey]} />
+          {carRentalTiers.map((tier, i) => (
+            <Reveal key={tier.id} delay={i * 0.1}>
+              <TierCard tier={tier} image={IMAGES[tier.imageKey]} />
+            </Reveal>
           ))}
         </div>
 
@@ -37,7 +40,7 @@ export default function CarRentals() {
           <Disclosure trigger="Not sure if you need a car?">
             <p>
               Whether you need a car depends on your itinerary — read{" "}
-              <Link href="/blog/do-you-need-a-car-in-montenegro" className="text-bronze hover:underline">
+              <Link href="/blog/do-you-need-a-car-in-montenegro" className="text-bronze-text hover:underline">
                 Do You Need a Car in Montenegro?
               </Link>{" "}
               first, then pick the tier above that matches your trip.

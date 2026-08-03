@@ -2,6 +2,7 @@ import { Fraunces, Work_Sans } from "next/font/google";
 import "./globals.css";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import MotionProvider from "@/components/MotionProvider";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -42,7 +43,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${fraunces.variable} ${workSans.variable} antialiased`}>
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         <GoogleAnalytics />
       </body>
     </html>

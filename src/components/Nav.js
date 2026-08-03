@@ -55,14 +55,14 @@ export default function Nav() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-30 transition-colors duration-300 ${
+        className={`fixed top-0 inset-x-0 z-30 transition-colors duration-300 ease-graceful ${
           solid ? "bg-stone/95 backdrop-blur-md border-b border-border" : "bg-transparent"
         }`}
       >
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
           <Link
             href="/"
-            className={`font-display italic text-xl tracking-tight transition-colors ${
+            className={`relative font-display italic text-xl tracking-tight transition-colors duration-300 ease-graceful after:content-[''] after:absolute after:left-1/2 after:-bottom-1 after:h-px after:w-0 after:-translate-x-1/2 after:bg-bronze after:transition-[width] after:duration-300 after:ease-graceful hover:after:w-full ${
               solid ? "text-ink" : "text-stone"
             }`}
             onClick={() => setMenuOpen(false)}
@@ -75,8 +75,8 @@ export default function Nav() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`relative transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-bronze after:transition-[width] hover:after:w-full ${
-                  scrolled ? "text-stone-dim hover:text-bronze" : "text-stone/85 hover:text-stone"
+                className={`relative transition-colors duration-200 ease-snap after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-bronze after:transition-[width] after:duration-200 after:ease-snap hover:after:w-full ${
+                  scrolled ? "text-stone-dim hover:text-bronze-text" : "text-stone/85 hover:text-stone"
                 }`}
               >
                 {l.label}
@@ -91,23 +91,23 @@ export default function Nav() {
             aria-expanded={menuOpen}
             aria-controls="mobile-nav-panel"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className={`sm:hidden -mr-2.5 flex h-11 w-11 items-center justify-center transition-colors ${
+            className={`sm:hidden -mr-2.5 flex h-11 w-11 items-center justify-center transition-colors duration-300 ease-graceful ${
               solid ? "text-ink" : "text-stone"
             }`}
           >
             <span className="relative block h-4 w-6" aria-hidden="true">
               <span
-                className={`absolute left-0 top-0 h-px w-6 bg-current transition-transform duration-300 ${
+                className={`absolute left-0 top-0 h-px w-6 bg-current transition-transform duration-200 ease-snap ${
                   menuOpen ? "translate-y-[7.5px] rotate-45" : ""
                 }`}
               />
               <span
-                className={`absolute left-0 top-1/2 h-px w-6 -translate-y-1/2 bg-current transition-opacity duration-200 ${
+                className={`absolute left-0 top-1/2 h-px w-6 -translate-y-1/2 bg-current transition-opacity duration-150 ease-snap ${
                   menuOpen ? "opacity-0" : "opacity-100"
                 }`}
               />
               <span
-                className={`absolute left-0 bottom-0 h-px w-6 bg-current transition-transform duration-300 ${
+                className={`absolute left-0 bottom-0 h-px w-6 bg-current transition-transform duration-200 ease-snap ${
                   menuOpen ? "-translate-y-[7.5px] -rotate-45" : ""
                 }`}
               />
@@ -126,7 +126,7 @@ export default function Nav() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setMenuOpen(false)}
-                  className="py-4 text-base text-ink border-b border-border last:border-0 hover:text-bronze transition-colors"
+                  className="py-4 text-base text-ink border-b border-border last:border-0 hover:text-bronze-text transition-colors duration-200 ease-snap"
                 >
                   {l.label}
                 </Link>

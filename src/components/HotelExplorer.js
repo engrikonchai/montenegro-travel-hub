@@ -1,14 +1,20 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { motion } from "motion/react";
 import HotelCard from "@/components/HotelCard";
 import HotelFilters from "@/components/HotelFilters";
-import { CITIES, PRICE_TIERS, hotels } from "@/data/hotels";
+import Listbox from "@/components/Listbox";
+import { CITIES, CITY_IMAGE_KEYS, PRICE_TIERS, hotels } from "@/data/hotels";
+import { IMAGES } from "@/lib/images";
 
 const SORTS = {
   price: { label: "Price: low to high" },
   rating: { label: "Rating: high to low" },
 };
+
+const CITY_OPTIONS = CITIES.map((c) => ({ value: c.slug, label: c.name }));
+const SORT_OPTIONS = Object.entries(SORTS).map(([key, val]) => ({ value: key, label: val.label }));
 
 export default function HotelExplorer() {
   const [selectedCity, setSelectedCity] = useState(CITIES[0].slug);
@@ -18,6 +24,7 @@ export default function HotelExplorer() {
   const [sort, setSort] = useState("price");
 
   const cityName = CITIES.find((c) => c.slug === selectedCity)?.name || "";
+  const cityImage = IMAGES[CITY_IMAGE_KEYS[selectedCity]];
 
   // Hotels in the selected city — the base set filters and tag chips derive from.
   const cityHotels = useMemo(
@@ -67,35 +74,14 @@ export default function HotelExplorer() {
   return (
     <section className="max-w-6xl mx-auto px-6 py-14 md:py-16">
       <div className="flex flex-wrap items-end justify-between gap-6 mb-8">
-        <label className="flex flex-col gap-2">
-          <span className="text-xs uppercase tracking-wide text-stone-dim">Choose a base</span>
-          <select
-            value={selectedCity}
-            onChange={(e) => changeCity(e.target.value)}
-            className="bg-ink-light/60 border border-border rounded-sm px-4 py-2.5 text-ink font-display text-lg focus:outline-none focus:border-bronze min-w-[16rem]"
-          >
-            {CITIES.map((city) => (
-              <option key={city.slug} value={city.slug}>
-                {city.name}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <label className="flex flex-col gap-2">
-          <span className="text-xs uppercase tracking-wide text-stone-dim">Sort by</span>
-          <select
-            value={sort}
-            onChange={(e) => setSort(e.target.value)}
-            className="bg-ink-light/60 border border-border rounded-sm px-4 py-2.5 text-sm text-ink focus:outline-none focus:border-bronze"
-          >
-            {Object.entries(SORTS).map(([key, val]) => (
-              <option key={key} value={key}>
-                {val.label}
-              </option>
-            ))}
-          </select>
-        </label>
+        <Listbox label="Choose a base" value={selectedCity} options={CITY_OPTIONS} onChange={changeCity} />
+        <Listbox
+          label="Sort by"
+          value={sort}
+          options={SORT_OPTIONS}
+          onChange={setSort}
+          className="min-w-0"
+        />
       </div>
 
       <div className="mb-10">
@@ -119,17 +105,17 @@ export default function HotelExplorer() {
           <button
             type="button"
             onClick={clearFilters}
-            className="inline-flex items-center justify-center text-sm font-medium text-ink bg-bronze hover:bg-bronze/90 transition-colors px-5 py-2.5 rounded-sm"
+            className="inline-flex items-center justify-center text-sm font-medium text-ink bg-bronze hover:bg-bronze/90 active:scale-[0.97] transition-[background-color,transform] duration-200 px-5 py-2.5 rounded-sm"
           >
             Clear filters
           </button>
         </div>
       ) : (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredHotels.map((hotel) => (
-            <HotelCard key={hotel.id} hotel={hotel} cityName={cityName} />
+            <HotelCard key={hotel.id} hotel={hotel} cityName={cityName} image={cityImage} />
           ))}
-        </div>
+        </motion.div>
       )}
     </section>
   );

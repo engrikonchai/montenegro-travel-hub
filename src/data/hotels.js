@@ -17,6 +17,28 @@ export const PRICE_TIERS = {
   luxury: { label: "Luxury", order: 4 },
 };
 
+// Per-city representative photo for HotelCard, keyed to IMAGES in @/lib/images.
+// These are destination shots (not specific properties) grouped by geography —
+// coastal Bay of Kotor towns, Budva Riviera towns, southern Adriatic coast, and
+// mountain/inland towns each share one already-verified image from IMAGES.
+export const CITY_IMAGE_KEYS = {
+  kotor: "kotorBay",
+  tivat: "kotorBay",
+  "herceg-novi": "kotorBay",
+  budva: "budvaOldTown",
+  petrovac: "budvaOldTown",
+  cetinje: "budvaStatue",
+  bar: "svetiStefan",
+  ulcinj: "svetiStefan",
+  zabljak: "durmitorBlackLake",
+  "skadar-lake": "skadarLakeHero",
+  kolasin: "mountainRoad",
+  podgorica: "mountainRoad",
+  niksic: "mountainRoad",
+  pljevlja: "mountainRoad",
+  rozaje: "mountainRoad",
+};
+
 export const CITIES = [
   { slug: "kotor", name: "Kotor" },
   { slug: "budva", name: "Budva" },

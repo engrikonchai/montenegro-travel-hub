@@ -1,4 +1,5 @@
 import { PRICE_TIERS } from "@/data/hotels";
+import Chip from "@/components/Chip";
 
 // Toggle-chip filter bar for the hotel grid. Purely presentational — all state
 // lives in HotelExplorer, which passes the selected sets and toggle handlers.
@@ -8,23 +9,6 @@ const TIER_ORDER = Object.entries(PRICE_TIERS)
   .map(([key, val]) => ({ key, label: val.label }));
 
 const RATINGS = [3, 4, 5];
-
-function Chip({ active, onClick, children }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className={`text-sm px-4 py-2 rounded-full border transition-colors ${
-        active
-          ? "bg-bronze text-ink border-bronze"
-          : "border-border text-stone-dim hover:border-bronze hover:text-bronze"
-      }`}
-    >
-      {children}
-    </button>
-  );
-}
 
 export default function HotelFilters({
   availableTags,
@@ -92,7 +76,7 @@ export default function HotelFilters({
         <button
           type="button"
           onClick={onClear}
-          className="text-sm text-bronze hover:underline w-fit"
+          className="text-sm text-bronze-text hover:underline underline-offset-4 transition-colors duration-200 ease-snap w-fit"
         >
           Clear filters
         </button>
